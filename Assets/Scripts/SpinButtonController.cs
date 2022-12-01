@@ -1,52 +1,78 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
-
+using TMPro;
 
 public class SpinButtonController : BabaButton
 {
-    public SlotController controlledSlot;
 
-    public enum MainButtonState
+    public UnityAction SpinPressed;
+    public UnityAction StopPressed;
+    public UnityAction AutoSpinPressed;
+
+
+    [SerializeField] TMP_Text text;
+    enum MainButtonState
     {
         SPIN,
         STOP,
-        //TODO: AUTO_SPIN
+        AUTO_SPIN
     };
 
+    private static Dictionary<MainButtonState, string> buttonTexts = new Dictionary<MainButtonState, string>()
+    {
+        {MainButtonState.SPIN, "Spin" },
+        {MainButtonState.STOP, "Stop" },
+        {MainButtonState.AUTO_SPIN, "AutoSpin"}
+    };
     [SerializeField] MainButtonState currentButtonState;
     MainButtonState CurrentButtonState => currentButtonState;
 
     private void OnEnable()
     {
-        shortPress += ShortPress;
+        shortPress += OnShortPress;
+        longPressUp += OnLongPressUp;
+      
     }
     private void OnDisable()
     {
-        shortPress -= ShortPress;
+        shortPress -= OnShortPress;
+        longPressUp -= OnLongPressUp;
+       
     }
-    void ShortPress()
+    void OnLongPressUp()
+    {
+        if (currentButtonState == MainButtonState.STOP)
+            return;
+        AutoSpinPressed?.Invoke();
+      
+    }
+    void OnShortPress()
     {
         MainButtonState _currentButtonState = currentButtonState;
 
         if (_currentButtonState == MainButtonState.SPIN)
         {
-            controlledSlot.Spin();
-            ChangeButtonState(MainButtonState.STOP);
+            SpinPressed?.Invoke();
         }
         else if (_currentButtonState == MainButtonState.STOP)
         {
-            controlledSlot.Stop();
-            ChangeButtonState(MainButtonState.SPIN);
+            StopPressed?.Invoke();
         }
     }
     void ChangeButtonState(MainButtonState newState)
     {
         currentButtonState = newState;
-        //TODO: change sprite
+        text.text = buttonTexts[newState];
     }
-   
 
+    public void ChangeToStopState() => ChangeButtonState(MainButtonState.STOP);
+  
+    public void ChangeToSpinState() => ChangeButtonState(MainButtonState.SPIN);
+  
+    public void ChangeToAutoState() => ChangeButtonState(MainButtonState.AUTO_SPIN);
+ 
 }
