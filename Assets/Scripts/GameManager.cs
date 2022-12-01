@@ -3,18 +3,18 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class BabaSceneManager : MonoBehaviour
+public class GameManager : MonoBehaviour
 {
 
-    private static BabaSceneManager instance = null;
+    private static GameManager instance = null;
 
-    public static BabaSceneManager Instance
+    public static GameManager Instance
     {
         get
         {
             if (instance)
                 return instance;
-            instance = FindObjectOfType<BabaSceneManager>();
+            instance = FindObjectOfType<GameManager>();
             return instance;
         }
     }
