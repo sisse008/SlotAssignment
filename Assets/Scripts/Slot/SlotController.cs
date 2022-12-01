@@ -9,13 +9,16 @@ public class SlotController : MonoBehaviour
 
     public SpinButtonController slotButton;
 
-    [SerializeField] float AutoSpinDuration = 5f;
+    public SlotSettings settings;
+
+    public Transform reelsHolder;
 
     private void OnEnable()
     {
         slotButton.SpinPressed += Spin;
         slotButton.StopPressed += Stop;
         slotButton.AutoSpinPressed += AutoSpin;
+        InitSlot();
     }
 
     private void OnDisable()
@@ -23,6 +26,18 @@ public class SlotController : MonoBehaviour
         slotButton.SpinPressed -= Spin;
         slotButton.StopPressed -= Stop;
         slotButton.AutoSpinPressed -= AutoSpin;
+    }
+    private void InitSlot()
+    {
+        InitReels();
+    }
+
+    private void InitReels()
+    {
+        for (int i = 0; i < settings.NumOfReels; i++)
+        {
+            Instantiate(AssetsManager.Instance.reelPrefabAsset, reelsHolder);
+        }
     }
 
     private void Start()
@@ -53,7 +68,7 @@ public class SlotController : MonoBehaviour
 
     public void AutoSpin()
     {
-        StartCoroutine(SpinForSeconds(AutoSpinDuration));
+        StartCoroutine(SpinForSeconds(settings.AutoSpinDuration));
         slotButton.ChangeToAutoState();
     }
 
