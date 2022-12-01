@@ -210,6 +210,7 @@ GameObject:
   - component: {fileID: 456811718}
   - component: {fileID: 456811720}
   - component: {fileID: 456811719}
+  - component: {fileID: 456811721}
   m_Layer: 5
   m_Name: slot
   m_TagString: Untagged
@@ -275,6 +276,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 456811717}
   m_CullTransparentMesh: 1
+--- !u!114 &456811721
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 456811717}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 973a60c3bcf8b954ba569d0bddfc6385, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentSlotMode: 0
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -677,6 +691,7 @@ GameObject:
   - component: {fileID: 2012439553}
   - component: {fileID: 2012439555}
   - component: {fileID: 2012439554}
+  - component: {fileID: 2012439556}
   m_Layer: 5
   m_Name: spin button
   m_TagString: Untagged
@@ -742,6 +757,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2012439552}
   m_CullTransparentMesh: 1
+--- !u!114 &2012439556
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2012439552}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: daad4e011e7a8ef448bb2bd487ef47f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  controlledSlot: {fileID: 0}
+  currentButtonState: 0
 --- !u!1001 &2084955120
 PrefabInstance:
   m_ObjectHideFlags: 0
