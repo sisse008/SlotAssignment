@@ -13,12 +13,14 @@ public class SlotController : MonoBehaviour
 
     public Transform reelsHolder;
 
+    [SerializeField]List<ReelController> reels = new List<ReelController>();
+
     private void OnEnable()
     {
         slotButton.SpinPressed += Spin;
         slotButton.StopPressed += Stop;
         slotButton.AutoSpinPressed += AutoSpin;
-        InitSlot();
+        
     }
 
     private void OnDisable()
@@ -34,14 +36,18 @@ public class SlotController : MonoBehaviour
 
     private void InitReels()
     {
-        for (int i = 0; i < settings.NumOfReels; i++)
+        reels.Clear();
+        foreach (ReelSettings reelSetting in settings.Reels)
         {
-            Instantiate(AssetsManager.Instance.reelPrefabAsset, reelsHolder);
+            ReelController reel = Instantiate(AssetsManager.Instance.reelPrefabAsset, reelsHolder);
+            reel.InitReel(reelSetting);
+            reels.Add(reel);
         }
     }
 
     private void Start()
     {
+        InitSlot();
         Stop();
     }
 
@@ -57,12 +63,18 @@ public class SlotController : MonoBehaviour
     public void Spin()
     {
         currentSlotMode = SlotMode.SPINNING;
+        foreach (ReelController reel in reels)
+            reel.Stop();
+
         slotButton.ChangeToStopState();
     }
 
     public void Stop()
     {
         currentSlotMode = SlotMode.IDLE;
+        foreach (ReelController reel in reels)
+            reel.Stop();
+
         slotButton.ChangeToSpinState();
     }
 

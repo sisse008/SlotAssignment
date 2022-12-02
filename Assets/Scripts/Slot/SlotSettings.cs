@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-[CreateAssetMenu(fileName = "New Slot Settings", menuName = "ScriptableObjects/Slot/NewSlotSettings")]
+[CreateAssetMenu(fileName = "New Slot Settings", menuName = "ScriptableObjects/Slot/New Slot Settings")]
 public class SlotSettings : ScriptableObject
 {
 
@@ -16,7 +16,6 @@ public class SlotSettings : ScriptableObject
     [SerializeField] float numOfCyclesAutoSpin;
     public float NumOfCyclesAutoSpin => numOfCyclesAutoSpin;
 
-    [Range(2,5)]
-    [SerializeField] int numOfReels;
-    public int NumOfReels => numOfReels;
+    [SerializeField] List<ReelSettings> reels;
+    public List<ReelSettings> Reels => new List<ReelSettings>(reels);
 }

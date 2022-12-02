@@ -15,4 +15,5 @@ MonoBehaviour:
   autoSpinDuration: 5
   spinSpeed: 0
   numOfCyclesAutoSpin: 0
-  numOfReels: 5
+  reels:
+  - {fileID: 11400000, guid: c90cb8bfc60744048b15c5056cb43ede, type: 2}
