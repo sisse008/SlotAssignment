@@ -1,17 +1,22 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class ReelController : MonoBehaviour
 {
-    [SerializeField] Transform symbolsHolder;
-    [SerializeField] Transform centerPosition;
+    [SerializeField] RectTransform symbolsHolder;
+    [SerializeField] RectTransform centerPosition;
+
+    [SerializeField] List<Image> symbols;
     public void InitReel(ReelSettings settings)
     {
+        symbols.Clear();
         foreach (Image image in settings.Symbols)
         {
-            Instantiate(image,symbolsHolder);
+            Image s = Instantiate(image,symbolsHolder);
+            symbols.Add(s);
         }
     }
 
@@ -26,13 +31,13 @@ public class ReelController : MonoBehaviour
     {
        while (true)
         {   
-            if (symbolsHolder.localPosition.y < 11.7)
+            if (symbolsHolder.anchoredPosition.y < 11.7)
             {
-                symbolsHolder.localPosition += new Vector3(0, 0.1f, 0)*speed;
+                symbolsHolder.anchoredPosition += new Vector2(0, 0.1f)*speed;
             }
             else 
             {
-                symbolsHolder.localPosition = new Vector3(0, -1.94f, 0);
+                symbolsHolder.anchoredPosition = new Vector3(0, -1.94f);
             }
             
             yield return null;

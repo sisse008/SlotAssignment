@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: New Slot Settings
   m_EditorClassIdentifier: 
   autoSpinDuration: 5
-  spinSpeed: 2
+  spinSpeed: 2.31
   numOfCyclesAutoSpin: 0
   reels:
   - {fileID: 11400000, guid: c90cb8bfc60744048b15c5056cb43ede, type: 2}

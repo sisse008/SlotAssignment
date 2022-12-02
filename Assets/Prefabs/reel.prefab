@@ -97,7 +97,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   symbolsHolder: {fileID: 8708772894012435018}
-  centerPosition: {fileID: 0}
+  centerPosition: {fileID: 2067575432}
+  symbols: []
 --- !u!1 &9069213705942682943
 GameObject:
   m_ObjectHideFlags: 0
