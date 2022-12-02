@@ -5,9 +5,10 @@ using System;
 
 public static class Tools 
 {
+    static Random rng = new Random();
     public static List<T> ShuffledList<T>(List<T> list)
     {
-        Random rng = new Random();
+       
         List<T> shuffled = new List<T>(list);
 
         int n = shuffled.Count;

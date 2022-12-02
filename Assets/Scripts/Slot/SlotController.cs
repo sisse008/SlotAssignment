@@ -15,6 +15,11 @@ public class SlotController : MonoBehaviour
 
     [SerializeField]List<ReelController> reels = new List<ReelController>();
 
+
+#if UNITY_EDITOR
+    public ReelController debugReel;
+#endif
+
     private void OnEnable()
     {
         slotButton.SpinPressed += Spin;
@@ -37,6 +42,15 @@ public class SlotController : MonoBehaviour
     private void InitReels()
     {
         reels.Clear();
+
+#if UNITY_EDITOR
+        if (debugReel)
+        {
+            reels.Add(debugReel);
+            return;
+        }
+#endif
+       
         foreach (ReelSettings reelSetting in settings.Reels)
         {
             ReelController reel = Instantiate(AssetsManager.Instance.reelPrefabAsset, reelsHolder);
@@ -64,7 +78,7 @@ public class SlotController : MonoBehaviour
     {
         currentSlotMode = SlotMode.SPINNING;
         foreach (ReelController reel in reels)
-            reel.Stop();
+            reel.Spin();
 
         slotButton.ChangeToStopState();
     }
