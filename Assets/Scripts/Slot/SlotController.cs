@@ -44,7 +44,7 @@ public class SlotController : MonoBehaviour
         reels.Clear();
 
 #if UNITY_EDITOR
-        if (debugReel)
+        if (debugReel && debugReel.isActiveAndEnabled)
         {
             reels.Add(debugReel);
             return;
@@ -77,21 +77,30 @@ public class SlotController : MonoBehaviour
     public void Spin()
     {
         currentSlotMode = SlotMode.SPINNING;
-        foreach (ReelController reel in reels)
-            reel.Spin();
 
+        StartCoroutine(SpinReels());
         slotButton.ChangeToStopState();
     }
 
     public void Stop()
     {
         currentSlotMode = SlotMode.IDLE;
-        foreach (ReelController reel in reels)
-            reel.Stop();
+        StartCoroutine(SpinReels(false));
 
         slotButton.ChangeToSpinState();
     }
 
+    IEnumerator SpinReels(bool spin = true)
+    {
+        foreach (ReelController reel in reels)
+        {
+            if (spin)
+                reel.Spin(settings.SpinSpeed);
+            else
+                reel.Stop();
+            yield return new WaitForSeconds(0.5f);
+        }
+    }
     public void AutoSpin()
     {
         StartCoroutine(SpinForSeconds(settings.AutoSpinDuration));

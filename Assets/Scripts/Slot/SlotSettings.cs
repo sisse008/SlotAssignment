@@ -10,7 +10,7 @@ public class SlotSettings : ScriptableObject
     [SerializeField] float autoSpinDuration = 5f;
     public float AutoSpinDuration => autoSpinDuration;
 
-    [SerializeField] float spinSpeed;
+    [SerializeField] float spinSpeed = 2f;
     public float SpinSpeed => spinSpeed;
 
     [SerializeField] float numOfCyclesAutoSpin;

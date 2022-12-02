@@ -16,20 +16,19 @@ public class ReelController : MonoBehaviour
     }
 
     Coroutine spinCoroutine;
-    public void Spin()
+    public void Spin(float speed)
     {
        // Debug.Log("spin");
-        spinCoroutine = StartCoroutine(SpinLoop());
+        spinCoroutine = StartCoroutine(SpinLoop(speed));
     }
 
-    IEnumerator SpinLoop()
+    IEnumerator SpinLoop(float speed)
     {
        while (true)
-        {
-            
+        {   
             if (symbolsHolder.localPosition.y < 11.7)
             {
-                symbolsHolder.localPosition += new Vector3(0, 0.1f, 0);
+                symbolsHolder.localPosition += new Vector3(0, 0.1f, 0)*speed;
             }
             else 
             {
