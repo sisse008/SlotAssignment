@@ -24,8 +24,7 @@ public class SlotController : MonoBehaviour
     {
         slotButton.SpinPressed += Spin;
         slotButton.StopPressed += Stop;
-        slotButton.AutoSpinPressed += AutoSpin;
-        
+        slotButton.AutoSpinPressed += AutoSpin; 
     }
 
     private void OnDisable()
@@ -47,6 +46,7 @@ public class SlotController : MonoBehaviour
         if (debugReel && debugReel.isActiveAndEnabled)
         {
             reels.Add(debugReel);
+            debugReel.InitReel(null);
             return;
         }
 #endif

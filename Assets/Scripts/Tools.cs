@@ -22,18 +22,4 @@ public static class Tools
         }
         return shuffled;
     }
-
-    public static float ClosestPointDistanceFromUnder(List<Vector3> points, Vector3 center)
-    {
-        float distance = float.MaxValue;
-        foreach (Vector3 point in points)
-        {
-            if (point.y > center.y)
-                continue;
-            if (Mathf.Abs(center.y - point.y) < distance)
-                distance = Mathf.Abs(center.y - point.y);
-        }
-
-        return distance;
-    }
 }
