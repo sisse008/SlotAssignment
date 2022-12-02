@@ -9,5 +9,5 @@ using UnityEngine.UI;
 public class ReelSettings : ScriptableObject
 {
     [SerializeField] List<Image> symbols;
-    public List<Image> Symbols => new List<Image>(symbols);
+    public List<Image> Symbols => Tools.ShuffledList(symbols);
 }
