@@ -19,7 +19,6 @@ public class GameManager : MonoBehaviour
             return instance;
         }
     }
-
     private void Awake()
     {
         if (instance && instance != this)
@@ -33,7 +32,7 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        UpdateScore(1000);
+        UpdateScore(100000);
     }
 
     void UpdateScore(int newScore)

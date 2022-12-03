@@ -9,9 +9,13 @@ public class ReelController : MonoBehaviour
     [SerializeField] RectTransform symbolsHolder;
     [SerializeField] RectTransform centerPosition;
 
-    [SerializeField] List<RectTransform> symbols;
+    [SerializeField] List<SlotSymbol> symbols;
 
     Vector2 initHolderPosition;
+
+    public int winningSymbol = 0;
+
+
 
     float symbolHeight = 1.69f;
     float height => symbolHeight * (symbols==null ? 0 : symbols.Count-1);
@@ -21,20 +25,31 @@ public class ReelController : MonoBehaviour
     {
         initHolderPosition = symbolsHolder.anchoredPosition;
     }
+
+    SlotSymbol GetSymbolFromId(int id)
+    {
+        foreach (SlotSymbol symbol in symbols)
+        {
+            if (id == symbol.Id)
+                return symbol;
+        }
+        return null;
+    }
     public void InitReel(ReelSettings settings)
     {
+        winningSymbol = 0;
         symbols.Clear();
        
         if (settings == null || settings.Symbols.Count == 0)
         {
             Image[] children = GetComponentsInChildren<Image>();
-            symbols = children.Select(z => z.GetComponent<RectTransform>()).ToList();
+            symbols = children.Select(z => z.GetComponent<SlotSymbol>()).ToList();
             return;
         }        
         foreach (Image image in settings.Symbols)
         {
             Image s = Instantiate(image,symbolsHolder);
-            symbols.Add(s.GetComponent<RectTransform>());
+            symbols.Add(s.GetComponent<SlotSymbol>());
         }
     }
 
@@ -64,7 +79,7 @@ public class ReelController : MonoBehaviour
             cycles++;
             yield return null;
         }
-        Debug.Log("cycles = " + cycles);
+       // Debug.Log("cycles = " + cycles);
     }
 
     IEnumerator SpinEndless(float speed)
@@ -87,28 +102,36 @@ public class ReelController : MonoBehaviour
         symbolsHolder.anchoredPosition = initHolderPosition;        
     }
 
-    public void Stop()
+    public void Stop(int forceWinningId = -1)
     {
         if (spinCoroutine == null)
             return;
 
         StopCoroutine(spinCoroutine);
 
-        ClampPosition();
+        ClampPosition(forceWinningId);
     }
 
-    void ClampPosition()
+    void ClampPosition(int forceWinningId = -1)
+    {
+        SlotSymbol symbol = forceWinningId ==-1? GetOverlappingSymbol() :
+            GetSymbolFromId(forceWinningId);
+        float distance = symbol.transform.position.y -
+            centerPosition.transform.position.y;
+
+        symbolsHolder.transform.position -= new Vector3(0,distance,0);
+
+        winningSymbol = symbol.GetComponent<SlotSymbol>().Id;
+    }
+
+    SlotSymbol GetOverlappingSymbol()
     {
         Collider2D center = centerPosition.GetComponent<Collider2D>();
         Collider2D[] overlappingSymbols = new Collider2D[1];
         ContactFilter2D contactFilter = new ContactFilter2D();
         int colliderCount = center.OverlapCollider(contactFilter.NoFilter(), overlappingSymbols);
         if (colliderCount == 0)
-            return;
-        float distance = overlappingSymbols[0].transform.position.y -
-            centerPosition.transform.position.y;
-
-        symbolsHolder.transform.position -= new Vector3(0,distance,0);
-      
+            return null;
+        return overlappingSymbols[0].GetComponent<SlotSymbol>();
     }
 }
