@@ -96,6 +96,7 @@ public class SlotController : MonoBehaviour
     void Stop()
     {
         currentSlotMode = SlotMode.IDLE;
+       
         StartCoroutine(StopReels());
 
         slotButton.ChangeToSpinState();
@@ -105,7 +106,7 @@ public class SlotController : MonoBehaviour
     {
         foreach (ReelController reel in reels)
         {
-            reel.Spin(settings.SpinSpeed, false);
+            reel.Spin(settings.SpinSpeed);
             yield return new WaitForSeconds(0.5f);
         }
     }
@@ -122,7 +123,7 @@ public class SlotController : MonoBehaviour
     {
         foreach (ReelController reel in reels)
         {
-            reel.Spin(settings.SpinSpeed, true, settings.NumOfCyclesAutoSpin);
+            reel.SpinAuto(settings.SpinSpeed, settings.NumOfCyclesAutoSpin);
             yield return new WaitForSeconds(0.5f);
         }
     }

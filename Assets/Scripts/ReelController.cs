@@ -39,18 +39,20 @@ public class ReelController : MonoBehaviour
     }
 
     Coroutine spinCoroutine;
-    public void Spin(float speed, bool setNumOfCycles, float numOfCycles = 0)
+    public void Spin(float speed)
     {
-        if (setNumOfCycles)
-        {
-            spinCoroutine = StartCoroutine(SpinForXCycles(speed, numOfCycles));
+        spinCoroutine = StartCoroutine(SpinEndless(speed));
+    }
 
-        }
-        else 
-        {
-            spinCoroutine = StartCoroutine(SpinLoop(speed));
-        }
-       
+    public void SpinAuto(float speed, float numOfCycles)
+    {
+        spinCoroutine = StartCoroutine(SpinForXCyclesAndStop(speed, numOfCycles));
+    }
+
+    IEnumerator SpinForXCyclesAndStop(float speed, float numOfCycles)
+    {
+        yield return SpinForXCycles(speed, numOfCycles);
+        Stop();
     }
 
     IEnumerator SpinForXCycles(float speed, float numOfCycles)
@@ -60,15 +62,18 @@ public class ReelController : MonoBehaviour
         {
             yield return SpinOneCycle(speed);
             cycles++;
+            yield return null;
         }
+        Debug.Log("cycles = " + cycles);
     }
 
-    IEnumerator SpinLoop(float speed)
+    IEnumerator SpinEndless(float speed)
     {
        while (true)
        {
             yield return SpinOneCycle(speed);
-       }
+            yield return null;
+        }
     }
 
     IEnumerator SpinOneCycle(float speed)
@@ -79,9 +84,7 @@ public class ReelController : MonoBehaviour
             yield return null;
         }
        
-        symbolsHolder.anchoredPosition = initHolderPosition;
-        
-        yield return null;
+        symbolsHolder.anchoredPosition = initHolderPosition;        
     }
 
     public void Stop()

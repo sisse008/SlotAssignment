@@ -15,7 +15,8 @@ public class ScoreBoard : MonoBehaviour
     }
     private void OnEnable()
     {
-        UpdateScoreBoard(GameManager.Instance.Score);
+        if(GameManager.Instance)
+            UpdateScoreBoard(GameManager.Instance.Score);
     }
     public void UpdateScoreBoard(int score)
     {
