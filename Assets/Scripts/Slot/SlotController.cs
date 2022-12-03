@@ -6,7 +6,6 @@ using UnityEngine.Events;
 
 public class SlotController : MonoBehaviour
 {
-
     public SpinButtonController slotButton;
 
     public SlotSettings settings;
@@ -15,27 +14,27 @@ public class SlotController : MonoBehaviour
 
     [SerializeField]List<ReelController> reels = new List<ReelController>();
 
-
 #if UNITY_EDITOR
     public ReelController debugReel;
 #endif
 
     private void OnEnable()
     {
-        slotButton.SpinPressed += Spin;
+        slotButton.SpinPressed += SpinEndless;
         slotButton.StopPressed += Stop;
         slotButton.AutoSpinPressed += AutoSpin; 
     }
 
     private void OnDisable()
     {
-        slotButton.SpinPressed -= Spin;
+        slotButton.SpinPressed -= SpinEndless;
         slotButton.StopPressed -= Stop;
         slotButton.AutoSpinPressed -= AutoSpin;
     }
     private void InitSlot()
     {
         InitReels();
+        slotButton.SetHoldThreshHold(settings.AutoHoldThreshhold);
     }
 
     private void InitReels()
@@ -74,44 +73,62 @@ public class SlotController : MonoBehaviour
     [SerializeField] SlotMode currentSlotMode;
     public SlotMode CurrentSlotMode => currentSlotMode;
 
-    public void Spin()
+    void SpinEndless()
+    {
+        StartCoroutine(Spin());
+        slotButton.ChangeToStopState();
+    } 
+
+    IEnumerator Spin(bool auto = false)
     {
         currentSlotMode = SlotMode.SPINNING;
-
-        StartCoroutine(SpinReels());
-        slotButton.ChangeToStopState();
+        if (auto == false)
+        {
+            yield return SpinReels();
+        }
+        else 
+        {
+            yield return SpinReelsAuto();
+            Stop();
+        }
     }
 
-    public void Stop()
+    void Stop()
     {
         currentSlotMode = SlotMode.IDLE;
-        StartCoroutine(SpinReels(false));
+        StartCoroutine(StopReels());
 
         slotButton.ChangeToSpinState();
     }
 
-    IEnumerator SpinReels(bool spin = true)
+    IEnumerator SpinReels()
     {
         foreach (ReelController reel in reels)
         {
-            if (spin)
-                reel.Spin(settings.SpinSpeed);
-            else
-                reel.Stop();
+            reel.Spin(settings.SpinSpeed, false);
             yield return new WaitForSeconds(0.5f);
         }
     }
-    public void AutoSpin()
+    IEnumerator StopReels()
     {
-        StartCoroutine(SpinForSeconds(settings.AutoSpinDuration));
+        foreach (ReelController reel in reels)
+        {
+            reel.Stop();
+            yield return new WaitForSeconds(0.5f);
+        }
+    }
+
+    IEnumerator SpinReelsAuto()
+    {
+        foreach (ReelController reel in reels)
+        {
+            reel.Spin(settings.SpinSpeed, true, settings.NumOfCyclesAutoSpin);
+            yield return new WaitForSeconds(0.5f);
+        }
+    }
+    void AutoSpin()
+    {
+        StartCoroutine(Spin(true));
         slotButton.ChangeToAutoState();
     }
-
-    IEnumerator SpinForSeconds(float spinTime)
-    {
-        Spin();
-        yield return new WaitForSeconds(spinTime);
-        Stop();
-    }
-
 }

@@ -1,13 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-
     private static GameManager instance = null;
-
     public static GameManager Instance
     {
         get
@@ -27,23 +24,25 @@ public class GameManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
+    private GameData data;
 
-    public const int MainGameIndex = 1;
-    public const int MenuSceneIndex = 0;
-
-    public void SwitchToGameScene(float loadSceneDelay)
+    public int Score => data.score;
+    private void Start()
     {
-        StartCoroutine(WaitAndLoadScene(loadSceneDelay, MainGameIndex));
+        data = new GameData();
     }
 
-    public void SwitchToMainMenuScene(float loadSceneDelay)
+    class GameData
     {
-        StartCoroutine(WaitAndLoadScene(loadSceneDelay, MenuSceneIndex));
-    }
+        public int score { get; private set; }
+        public GameData()
+        {
+            score = 100000;
+        }
 
-    IEnumerator WaitAndLoadScene(float secs, int sceneIndex)
-    {
-        yield return new WaitForSeconds(secs);
-        SceneManager.LoadScene(sceneIndex, LoadSceneMode.Single);
+        public void UpdateScore(int points)
+        {
+            score += points;
+        }
     }
 }

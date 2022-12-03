@@ -6,14 +6,13 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "New Slot Settings", menuName = "ScriptableObjects/Slot/New Slot Settings")]
 public class SlotSettings : ScriptableObject
 {
-
-    [SerializeField] float autoSpinDuration = 5f;
-    public float AutoSpinDuration => autoSpinDuration;
-
     [SerializeField] float spinSpeed = 2f;
     public float SpinSpeed => spinSpeed;
 
-    [SerializeField] float numOfCyclesAutoSpin;
+    [SerializeField] int autoHoldThreshhold = 2;
+    public int AutoHoldThreshhold => autoHoldThreshhold;
+
+    [SerializeField] float numOfCyclesAutoSpin = 10;
     public float NumOfCyclesAutoSpin => numOfCyclesAutoSpin;
 
     [SerializeField] List<ReelSettings> reels;

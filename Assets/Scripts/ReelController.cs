@@ -39,26 +39,49 @@ public class ReelController : MonoBehaviour
     }
 
     Coroutine spinCoroutine;
-    public void Spin(float speed)
+    public void Spin(float speed, bool setNumOfCycles, float numOfCycles = 0)
     {
-        spinCoroutine = StartCoroutine(SpinLoop(speed));
+        if (setNumOfCycles)
+        {
+            spinCoroutine = StartCoroutine(SpinForXCycles(speed, numOfCycles));
+
+        }
+        else 
+        {
+            spinCoroutine = StartCoroutine(SpinLoop(speed));
+        }
+       
+    }
+
+    IEnumerator SpinForXCycles(float speed, float numOfCycles)
+    {
+        int cycles = 0;
+        while (cycles < numOfCycles)
+        {
+            yield return SpinOneCycle(speed);
+            cycles++;
+        }
     }
 
     IEnumerator SpinLoop(float speed)
     {
        while (true)
-       {   
-            if (symbolsHolder.anchoredPosition.y < initHolderPosition.y + height - offset)
-            {
-                symbolsHolder.anchoredPosition += new Vector2(0, 0.1f)*speed;
-            }
-            else 
-            {
-                symbolsHolder.anchoredPosition = initHolderPosition;
-            }
-            
-            yield return null;
+       {
+            yield return SpinOneCycle(speed);
        }
+    }
+
+    IEnumerator SpinOneCycle(float speed)
+    {
+        while(symbolsHolder.anchoredPosition.y < initHolderPosition.y + height - offset)
+        {
+            symbolsHolder.anchoredPosition += new Vector2(0, 0.1f) * speed;
+            yield return null;
+        }
+       
+        symbolsHolder.anchoredPosition = initHolderPosition;
+        
+        yield return null;
     }
 
     public void Stop()

@@ -17,6 +17,11 @@ public class BabaButton : MonoBehaviour, IPointerUpHandler, IPointerDownHandler
 
     bool longPress;
 
+    public void SetHoldThreshHold(int threshhold)
+    {
+        holdTimeThreshHold = threshhold;
+    }
+
     public void OnPointerDown(PointerEventData eventData)
     {
         counter = StartCoroutine(CountSeconds()) ;
