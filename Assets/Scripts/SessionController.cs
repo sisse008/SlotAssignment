@@ -24,6 +24,8 @@ public class SessionController : MonoBehaviour
         slot.OnSpinAction += ReduceScore;
         slot.OnWinAction += OnSlotWin;
 
+        slot.OnAutoSpinEnded += StopSlot;
+
         if (GameManager.Instance)
             GameManager.Instance.ScoreUpdated += scoreBoard.UpdateScoreBoard;  
     }
@@ -37,6 +39,8 @@ public class SessionController : MonoBehaviour
 
         slot.OnSpinAction -= ReduceScore;
         slot.OnWinAction -= OnSlotWin;
+
+        slot.OnAutoSpinEnded -= StopSlot;
 
         if (GameManager.Instance)
             GameManager.Instance.ScoreUpdated -= scoreBoard.UpdateScoreBoard;

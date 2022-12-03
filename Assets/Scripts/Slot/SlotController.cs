@@ -21,6 +21,7 @@ public class SlotController : MonoBehaviour
 
     public UnityAction OnSpinAction;
     public UnityAction OnAutoSpinAction;
+    public UnityAction OnAutoSpinEnded;
     public UnityAction<int> OnWinAction;
 
     private void InitSlot()
@@ -76,7 +77,7 @@ public class SlotController : MonoBehaviour
         else 
         {
             yield return SpinReelsAuto();
-            Stop();
+            OnAutoSpinEnded?.Invoke();
         }
     }
 
