@@ -13,8 +13,9 @@ public class ReelController : MonoBehaviour
 
     Vector2 initHolderPosition;
 
-    float height => 1.69f * (symbols==null ? 0 : symbols.Count);
-    float offset => 1.69f / 2f;
+    float symbolHeight = 1.69f;
+    float height => symbolHeight * (symbols==null ? 0 : symbols.Count-1);
+    float offset => symbolHeight * 0.8f;
 
     private void OnEnable()
     {
@@ -40,7 +41,6 @@ public class ReelController : MonoBehaviour
     Coroutine spinCoroutine;
     public void Spin(float speed)
     {
-       // Debug.Log("spin");
         spinCoroutine = StartCoroutine(SpinLoop(speed));
     }
 
@@ -73,24 +73,16 @@ public class ReelController : MonoBehaviour
 
     void ClampPosition()
     {
-        float minDis = float.MaxValue;
-        bool clamp = false;
-        string name;
-        foreach (RectTransform symbol in symbols)
-        {
-            //TODO: bug!!!!!
-            if (symbol.anchoredPosition.y > centerPosition.anchoredPosition.y)
-                continue;
+        Collider2D center = centerPosition.GetComponent<Collider2D>();
+        Collider2D[] overlappingSymbols = new Collider2D[1];
+        ContactFilter2D contactFilter = new ContactFilter2D();
+        int colliderCount = center.OverlapCollider(contactFilter.NoFilter(), overlappingSymbols);
+        if (colliderCount == 0)
+            return;
+        float distance = overlappingSymbols[0].transform.position.y -
+            centerPosition.transform.position.y;
 
-            float distance = centerPosition.anchoredPosition.y - symbol.anchoredPosition.y;
-            if (distance < minDis)
-            {
-                name = symbol.name;
-                minDis = distance;
-                clamp = true;
-            }
-        }
-        if (clamp)
-            symbolsHolder.anchoredPosition += new Vector2(0, minDis);
+        symbolsHolder.transform.position -= new Vector3(0,distance,0);
+      
     }
 }
