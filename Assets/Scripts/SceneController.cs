@@ -8,4 +8,9 @@ public class SceneController : MonoBehaviour
     {
         GameManager.Instance.SwitchToMainMenuScene(0);
     }
+
+    public void SwitchToGameScene()
+    {
+        GameManager.Instance.SwitchToGameScene(0);
+    }
 }
