@@ -1,9 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class GameManager : MonoBehaviour
 {
+
+    public UnityAction<int> ScoreUpdated;
+
     private static GameManager instance = null;
     public static GameManager Instance
     {
@@ -24,25 +28,27 @@ public class GameManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
-    private GameData data;
+    [SerializeField] int score;
+    public int Score => score;
 
-    public int Score => data.score;
     private void Start()
     {
-        data = new GameData();
+        UpdateScore(1000);
     }
 
-    class GameData
+    void UpdateScore(int newScore)
     {
-        public int score { get; private set; }
-        public GameData()
-        {
-            score = 100000;
-        }
+        score = newScore;
+        ScoreUpdated?.Invoke(score);
+    }
 
-        public void UpdateScore(int points)
-        {
-            score += points;
-        }
+    public void ReduceScore(int cost)
+    {
+        UpdateScore(score - cost);
+    }
+
+    public void IncreaseScore(int gain)
+    {
+        UpdateScore(score + gain);
     }
 }

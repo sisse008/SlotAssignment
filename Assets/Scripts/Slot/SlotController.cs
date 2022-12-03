@@ -6,18 +6,22 @@ using UnityEngine.Events;
 
 public class SlotController : MonoBehaviour
 {
-    public SpinButtonController slotButton;
+    [SerializeField] SpinButtonController slotButton;
 
-    public SlotSettings settings;
+    [SerializeField] SlotSettings settings;
 
-    public Transform reelsHolder;
+    [SerializeField] Transform reelsHolder;
 
     [SerializeField]List<ReelController> reels = new List<ReelController>();
+
+    
 
 #if UNITY_EDITOR
     public ReelController debugReel;
 #endif
 
+
+    public UnityAction OnSpinAction;
     private void OnEnable()
     {
         slotButton.SpinPressed += SpinEndless;
@@ -75,6 +79,8 @@ public class SlotController : MonoBehaviour
 
     void SpinEndless()
     {
+        if (!SessionController.AllowSpin)
+            return;
         StartCoroutine(Spin());
         slotButton.ChangeToStopState();
     } 
@@ -82,6 +88,7 @@ public class SlotController : MonoBehaviour
     IEnumerator Spin(bool auto = false)
     {
         currentSlotMode = SlotMode.SPINNING;
+        OnSpinAction?.Invoke();
         if (auto == false)
         {
             yield return SpinReels();
@@ -129,6 +136,8 @@ public class SlotController : MonoBehaviour
     }
     void AutoSpin()
     {
+        if (!SessionController.AllowSpin)
+            return;
         StartCoroutine(Spin(true));
         slotButton.ChangeToAutoState();
     }

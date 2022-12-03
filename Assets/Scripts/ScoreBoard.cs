@@ -8,15 +8,10 @@ using UnityEngine;
 public class ScoreBoard : MonoBehaviour
 {
     TMP_Text text;
-
+    
     private void Awake()
     {
         text = GetComponent<TMP_Text>();
-    }
-    private void OnEnable()
-    {
-        if(GameManager.Instance)
-            UpdateScoreBoard(GameManager.Instance.Score);
     }
     public void UpdateScoreBoard(int score)
     {
