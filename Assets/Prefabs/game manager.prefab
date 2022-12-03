@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4780681850275272948}
   - component: {fileID: 433749925961755664}
+  - component: {fileID: 5086591890427907960}
   m_Layer: 0
   m_Name: game manager
   m_TagString: Untagged
@@ -30,7 +31,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &433749925961755664
 MonoBehaviour:
@@ -42,5 +43,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f256be41e6145ac488c538975022baa0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  score: 0
+--- !u!114 &5086591890427907960
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8017686615123578030}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 033da5589f9e9044a9a1d3ab928be5b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

@@ -20,7 +20,7 @@ public class SlotController : MonoBehaviour
     public ReelController debugReel;
 #endif
 
-
+    public UnityAction OnCantSpinAction;
     public UnityAction OnSpinAction;
     private void OnEnable()
     {
@@ -80,7 +80,11 @@ public class SlotController : MonoBehaviour
     void SpinEndless()
     {
         if (!SessionController.AllowSpin)
+        {
+            OnCantSpinAction?.Invoke();
             return;
+        }
+           
         StartCoroutine(Spin());
         slotButton.ChangeToStopState();
     } 
@@ -137,7 +141,10 @@ public class SlotController : MonoBehaviour
     void AutoSpin()
     {
         if (!SessionController.AllowSpin)
+        {
+            OnCantSpinAction?.Invoke();
             return;
+        }
         StartCoroutine(Spin(true));
         slotButton.ChangeToAutoState();
     }
