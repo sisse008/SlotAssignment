@@ -95,6 +95,7 @@ public class SessionController : MonoBehaviour
     void StopSlot()
     {
         slotButton.ChangeToSpinState();
-        slot.Stop();
+        slot.Stop(DebugManager.Instance.Debug, DebugManager.Instance.NumOfMatchesToForce);
+
     }
 }

@@ -81,10 +81,19 @@ public class SlotController : MonoBehaviour
         }
     }
 
-    public void Stop()
+    public void Stop(bool forceWin, int numOfmatches = 0)
     {
         currentSlotMode = SlotMode.IDLE;
-        StartCoroutine(StopReels(action:() => CheckForWin()));    
+        if (forceWin)
+            ForceWin(numOfmatches);
+        else
+            StartCoroutine(StopReels(action:() => CheckForWin()));    
+    }
+
+    void ForceWin(int numOfMatches)
+    {
+        
+
     }
 
     IEnumerator SpinReels()
