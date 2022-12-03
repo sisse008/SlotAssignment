@@ -11,9 +11,8 @@ public class SlotController : MonoBehaviour
 
     [SerializeField] Transform reelsHolder;
 
-    [SerializeField]List<ReelController> reels = new List<ReelController>();
-
-    
+    [SerializeField] List<ReelController> reels = new List<ReelController>();
+    public int NumberOfReels => reels.Count;
 
 #if UNITY_EDITOR
     public ReelController debugReel;
@@ -81,19 +80,11 @@ public class SlotController : MonoBehaviour
         }
     }
 
-    public void Stop(bool forceWin, int numOfmatches = 0)
+    public void Stop(int[] winningRow = null)
     {
         currentSlotMode = SlotMode.IDLE;
-        if (forceWin)
-            ForceWin(numOfmatches);
-        else
-            StartCoroutine(StopReels(action:() => CheckForWin()));    
-    }
-
-    void ForceWin(int numOfMatches)
-    {
-        
-
+       
+        StartCoroutine(StopReels(action:() => CheckForWin(), row: winningRow));    
     }
 
     IEnumerator SpinReels()
@@ -105,11 +96,14 @@ public class SlotController : MonoBehaviour
         }
     }
 
-    IEnumerator StopReels(Action action = null)
+    IEnumerator StopReels(Action action = null, int[] row = null)
     {
-        foreach (ReelController reel in reels)
+        for(int i=0; i< NumberOfReels; i++)
         {
-            reel.Stop();
+            if(row == null || row.Length != NumberOfReels)
+                reels[i].Stop();
+            else
+                reels[i].Stop(row[i]);
 
             yield return new WaitForSeconds(0.5f);
         }

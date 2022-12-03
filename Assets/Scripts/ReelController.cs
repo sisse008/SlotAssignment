@@ -102,7 +102,7 @@ public class ReelController : MonoBehaviour
         symbolsHolder.anchoredPosition = initHolderPosition;        
     }
 
-    public void Stop(int forceWinningId = -1)
+    public void Stop(int forceWinningId = 0)
     {
         if (spinCoroutine == null)
             return;
@@ -112,9 +112,9 @@ public class ReelController : MonoBehaviour
         ClampPosition(forceWinningId);
     }
 
-    void ClampPosition(int forceWinningId = -1)
+    void ClampPosition(int forceWinningId = 0)
     {
-        SlotSymbol symbol = forceWinningId ==-1? GetOverlappingSymbol() :
+        SlotSymbol symbol = forceWinningId <= 0? GetOverlappingSymbol() :
             GetSymbolFromId(forceWinningId);
         float distance = symbol.transform.position.y -
             centerPosition.transform.position.y;
