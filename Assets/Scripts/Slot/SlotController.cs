@@ -6,8 +6,7 @@ using UnityEngine.Events;
 
 public class SlotController : MonoBehaviour
 {
-    [SerializeField] SpinButtonController slotButton;
-
+   
     [SerializeField] SlotSettings settings;
 
     [SerializeField] Transform reelsHolder;
@@ -20,25 +19,14 @@ public class SlotController : MonoBehaviour
     public ReelController debugReel;
 #endif
 
-    public UnityAction OnCantSpinAction;
     public UnityAction OnSpinAction;
-    private void OnEnable()
-    {
-        slotButton.SpinPressed += SpinEndless;
-        slotButton.StopPressed += Stop;
-        slotButton.AutoSpinPressed += AutoSpin; 
-    }
+    public UnityAction OnAutoSpinAction;
+    public UnityAction<int> OnWinAction;
 
-    private void OnDisable()
-    {
-        slotButton.SpinPressed -= SpinEndless;
-        slotButton.StopPressed -= Stop;
-        slotButton.AutoSpinPressed -= AutoSpin;
-    }
     private void InitSlot()
     {
         InitReels();
-        slotButton.SetHoldThreshHold(settings.AutoHoldThreshhold);
+        currentSlotMode = SlotMode.IDLE;
     }
 
     private void InitReels()
@@ -65,7 +53,7 @@ public class SlotController : MonoBehaviour
     private void Start()
     {
         InitSlot();
-        Stop();
+      
     }
 
     public enum SlotMode
@@ -77,19 +65,7 @@ public class SlotController : MonoBehaviour
     [SerializeField] SlotMode currentSlotMode;
     public SlotMode CurrentSlotMode => currentSlotMode;
 
-    void SpinEndless()
-    {
-        if (!SessionController.AllowSpin)
-        {
-            OnCantSpinAction?.Invoke();
-            return;
-        }
-           
-        StartCoroutine(Spin());
-        slotButton.ChangeToStopState();
-    } 
-
-    IEnumerator Spin(bool auto = false)
+    public IEnumerator Spin(bool auto = false)
     {
         currentSlotMode = SlotMode.SPINNING;
         OnSpinAction?.Invoke();
@@ -104,13 +80,10 @@ public class SlotController : MonoBehaviour
         }
     }
 
-    void Stop()
+    public void Stop()
     {
         currentSlotMode = SlotMode.IDLE;
-       
-        StartCoroutine(StopReels());
-
-        slotButton.ChangeToSpinState();
+        StartCoroutine(StopReels(action:() => CheckForWin()));    
     }
 
     IEnumerator SpinReels()
@@ -121,15 +94,33 @@ public class SlotController : MonoBehaviour
             yield return new WaitForSeconds(0.5f);
         }
     }
-    IEnumerator StopReels()
+
+    IEnumerator StopReels(Action action = null)
     {
         foreach (ReelController reel in reels)
         {
             reel.Stop();
+
             yield return new WaitForSeconds(0.5f);
         }
+        action?.Invoke();
     }
-
+    void CheckForWin()
+    {
+        Dictionary<int, int> counter = new Dictionary<int, int>();
+        foreach (ReelController reel in reels)
+        {
+            if (counter.ContainsKey(reel.winningSymbol))
+                counter[reel.winningSymbol]++;
+            else
+                counter[reel.winningSymbol] = 1;
+        }
+        foreach (KeyValuePair<int, int> entry in counter)
+        {
+            if (entry.Value >= 3)
+                OnWinAction?.Invoke(entry.Value);
+        }
+    }
     IEnumerator SpinReelsAuto()
     {
         foreach (ReelController reel in reels)
@@ -137,15 +128,5 @@ public class SlotController : MonoBehaviour
             reel.SpinAuto(settings.SpinSpeed, settings.NumOfCyclesAutoSpin);
             yield return new WaitForSeconds(0.5f);
         }
-    }
-    void AutoSpin()
-    {
-        if (!SessionController.AllowSpin)
-        {
-            OnCantSpinAction?.Invoke();
-            return;
-        }
-        StartCoroutine(Spin(true));
-        slotButton.ChangeToAutoState();
     }
 }

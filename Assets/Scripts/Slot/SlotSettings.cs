@@ -9,9 +9,6 @@ public class SlotSettings : ScriptableObject
     [SerializeField] float spinSpeed = 2f;
     public float SpinSpeed => spinSpeed;
 
-    [SerializeField] int autoHoldThreshhold = 2;
-    public int AutoHoldThreshhold => autoHoldThreshhold;
-
     [SerializeField] float numOfCyclesAutoSpin = 10;
     public float NumOfCyclesAutoSpin => numOfCyclesAutoSpin;
 

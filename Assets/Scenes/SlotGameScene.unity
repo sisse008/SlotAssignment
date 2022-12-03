@@ -675,7 +675,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 973a60c3bcf8b954ba569d0bddfc6385, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  slotButton: {fileID: 2012439556}
   settings: {fileID: 11400000, guid: a129784d3aa59a14b80c8217a5bca096, type: 2}
   reelsHolder: {fileID: 217289282}
   reels: []
@@ -1178,6 +1177,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slot: {fileID: 456811721}
+  slotButton: {fileID: 2012439556}
   scoreBoard: {fileID: 2002714027}
   notFundsMessage: {fileID: 459836084}
 --- !u!4 &935085500
