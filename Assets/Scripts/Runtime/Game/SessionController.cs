@@ -9,13 +9,14 @@ public class SessionController : MonoBehaviour
 {
     [SerializeField] SlotController slot;
     [SerializeField] SpinButtonController slotButton;
-    [SerializeField] ScoreBoard scoreBoard;
     [SerializeField] WarningMassageController messageController;
+    [SerializeField] ScoreManager scoreManager;
+
 
     public static int spinCost { get; } = 1000;
     public static int spinPrize { get; } = 5000;
-    public static bool AllowSpin => GameManager.Instance.Score >= spinCost;
     public static int MaxMatchesPossible => 5;
+    public bool AllowSpin => scoreManager.Score >= spinCost;
 
     public static string NoFundsMessage => "No Sufficient Funds To Play";
 
@@ -28,13 +29,10 @@ public class SessionController : MonoBehaviour
         slotButton.AutoSpinPressed += AutoSpinSlot;
         slotButton.SpinButtonHold += ShowAutospinMessage;
 
-        slot.OnSpinAction += ReduceScore;
         slot.OnWinAction += OnSlotWin;
 
-        slot.OnAutoSpinEnded += StopSlot;
-
-        if (GameManager.Instance)
-            GameManager.Instance.ScoreUpdated += scoreBoard.UpdateScoreBoard;  
+        slot.OnAutoSpinEnded += StopAutoSpinning;
+ 
     }
 
     private void OnDisable()
@@ -43,14 +41,11 @@ public class SessionController : MonoBehaviour
         slotButton.StopPressed -= StopSlot;
         slotButton.AutoSpinPressed -= AutoSpinSlot;
 
-        slot.OnSpinAction -= ReduceScore;
         slot.OnWinAction -= OnSlotWin;
 
-        slot.OnAutoSpinEnded -= StopSlot;
+        slot.OnAutoSpinEnded -= StopAutoSpinning;
         slotButton.SpinButtonHold -= ShowAutospinMessage;
 
-        if (GameManager.Instance)
-            GameManager.Instance.ScoreUpdated -= scoreBoard.UpdateScoreBoard;
     }
 
     private void Start()
@@ -62,21 +57,14 @@ public class SessionController : MonoBehaviour
     private void InitNewSession()
     {
         slotButton.ChangeToSpinState();
-        scoreBoard.UpdateScoreBoard(GameManager.Instance.Score);
     }
 
     void OnSlotWin(int matches)
     {
-        GameManager.Instance.IncreaseScore(matches*spinPrize);
+        scoreManager.IncreaseScore(matches * spinPrize);
         if (matches == MaxMatchesPossible)
             CanvasManager.Instance.ShowWinningPopup((matches * spinPrize).ToString());
-
     }
-    void ReduceScore()
-    {
-        GameManager.Instance.ReduceScore(spinCost);
-    }
-
     void ShowAutospinMessage()
     {
         messageController.ShowMessage(AutoSpinRleaseMessage);
@@ -97,6 +85,7 @@ public class SessionController : MonoBehaviour
         { 
             StartCoroutine(slot.Spin());
             slotButton.ChangeToStopState();
+            scoreManager.DecreaseScore(spinCost);
         }
     }
 
@@ -104,18 +93,29 @@ public class SessionController : MonoBehaviour
     {
         if (IsSpinAllowed())
         {
-            StartCoroutine(slot.Spin(true));
+            StartCoroutine(slot.Spin(true, GetRandomWinningRowForDebugging()));
             slotButton.ChangeToAutoState();
+            scoreManager.DecreaseScore(spinCost);
         }
     }
 
+    void StopAutoSpinning()
+    {
+        slotButton.ChangeToSpinState();
+        slot.CheckForWin();
+    }
     void StopSlot()
     {
         slotButton.ChangeToSpinState();
+        slot.Stop(GetRandomWinningRowForDebugging());
+    }
+
+    private int[] GetRandomWinningRowForDebugging()
+    {
         int[] rowToForce = null;
         if (DebugManager.Instance.Debug)
             rowToForce = GenerateWinningRow(DebugManager.Instance.NumOfMatchesToForce);
-        slot.Stop(rowToForce);
+        return rowToForce;
     }
 
     private int[] GenerateWinningRow(int numOfMatchesToForce)

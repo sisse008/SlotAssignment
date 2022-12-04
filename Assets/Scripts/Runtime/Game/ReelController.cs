@@ -15,7 +15,7 @@ public class ReelController : MonoBehaviour
 
     public int winningSymbol = 0;
 
-
+    public bool Stopped { get; private set; }
 
     float symbolHeight = 1.69f;
     float height => symbolHeight * (symbols==null ? 0 : symbols.Count-1);
@@ -59,15 +59,15 @@ public class ReelController : MonoBehaviour
         spinCoroutine = StartCoroutine(SpinEndless(speed));
     }
 
-    public void SpinAuto(float speed, float numOfCycles)
+    public void SpinAuto(float speed, float numOfCycles, int forceWinningId = 0)
     {
-        spinCoroutine = StartCoroutine(SpinForXCyclesAndStop(speed, numOfCycles));
+        spinCoroutine = StartCoroutine(SpinForXCyclesAndStop(speed, numOfCycles, forceWinningId));
     }
 
-    IEnumerator SpinForXCyclesAndStop(float speed, float numOfCycles)
+    IEnumerator SpinForXCyclesAndStop(float speed, float numOfCycles, int forceWinningId = 0)
     {
         yield return SpinForXCycles(speed, numOfCycles);
-        Stop();
+        Stop(forceWinningId);
     }
 
     IEnumerator SpinForXCycles(float speed, float numOfCycles)
@@ -93,6 +93,7 @@ public class ReelController : MonoBehaviour
 
     IEnumerator SpinOneCycle(float speed)
     {
+        Stopped = false;
         while(symbolsHolder.anchoredPosition.y < initHolderPosition.y + height - offset)
         {
             symbolsHolder.anchoredPosition += new Vector2(0, 0.1f) * speed;
@@ -108,7 +109,7 @@ public class ReelController : MonoBehaviour
             return;
 
         StopCoroutine(spinCoroutine);
-
+        Stopped = true;
         ClampPosition(forceWinningId);
     }
 

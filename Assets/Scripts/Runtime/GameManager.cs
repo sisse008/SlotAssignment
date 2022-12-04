@@ -6,8 +6,6 @@ using UnityEngine.Events;
 public class GameManager : MonoBehaviour
 {
 
-    public UnityAction<int> ScoreUpdated;
-
     private static GameManager instance = null;
     public static GameManager Instance
     {
@@ -27,27 +25,16 @@ public class GameManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
-    [SerializeField] int score;
-    public int Score => score;
+    public int score;
 
     private void Start()
     {
-        UpdateScore(100000);
+        score = 100000;
+        Application.targetFrameRate = 30;
     }
 
-    void UpdateScore(int newScore)
+    public void UpdateScore(int newScore)
     {
         score = newScore;
-        ScoreUpdated?.Invoke(score);
-    }
-
-    public void ReduceScore(int cost)
-    {
-        UpdateScore(score - cost);
-    }
-
-    public void IncreaseScore(int gain)
-    {
-        UpdateScore(score + gain);
     }
 }

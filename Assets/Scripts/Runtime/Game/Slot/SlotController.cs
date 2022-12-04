@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -18,7 +19,6 @@ public class SlotController : MonoBehaviour
     public ReelController debugReel;
 #endif
 
-    public UnityAction OnSpinAction;
     public UnityAction OnAutoSpinAction;
     public UnityAction OnAutoSpinEnded;
     public UnityAction<int> OnWinAction;
@@ -65,18 +65,17 @@ public class SlotController : MonoBehaviour
     [SerializeField] SlotMode currentSlotMode;
     public SlotMode CurrentSlotMode => currentSlotMode;
 
-    public IEnumerator Spin(bool auto = false)
+    public IEnumerator Spin(bool auto = false, int[] row = null)
     {
         currentSlotMode = SlotMode.SPINNING;
-        OnSpinAction?.Invoke();
         if (auto == false)
         {
             yield return SpinReels();
         }
         else 
         {
-            yield return SpinReelsAuto();
-            OnAutoSpinEnded?.Invoke();
+            yield return SpinReelsAuto(rowToForce:row);
+            
         }
     }
 
@@ -109,7 +108,7 @@ public class SlotController : MonoBehaviour
         }
         action?.Invoke();
     }
-    void CheckForWin()
+    public void CheckForWin()
     {
         Dictionary<int, int> counter = new Dictionary<int, int>();
         foreach (ReelController reel in reels)
@@ -125,12 +124,18 @@ public class SlotController : MonoBehaviour
                 OnWinAction?.Invoke(entry.Value);
         }
     }
-    IEnumerator SpinReelsAuto()
+    IEnumerator SpinReelsAuto(int[] rowToForce = null)
     {
-        foreach (ReelController reel in reels)
+        for (int i = 0; i < NumberOfReels; i++)
         {
-            reel.SpinAuto(settings.SpinSpeed, settings.NumOfCyclesAutoSpin);
+            if (rowToForce == null || rowToForce.Length != NumberOfReels)
+               reels[i].SpinAuto(settings.SpinSpeed, settings.NumOfCyclesAutoSpin);
+            else
+               reels[i].SpinAuto(settings.SpinSpeed, settings.NumOfCyclesAutoSpin, rowToForce[i]);
+
             yield return new WaitForSeconds(0.5f);
         }
+        yield return new WaitUntil(() => reels.All(x => x.Stopped));
+        OnAutoSpinEnded?.Invoke();
     }
 }
