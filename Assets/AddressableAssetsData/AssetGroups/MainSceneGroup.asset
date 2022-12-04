@@ -1,0 +1,75 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: MainSceneGroup
+  m_EditorClassIdentifier: 
+  m_GroupName: MainSceneGroup
+  m_Data:
+    m_SerializedData: []
+  m_GUID: 0b8e166247c0a3445ac979208e0d7b9b
+  m_SerializeEntries:
+  - m_GUID: 2afff9f94679ae4488578576abcdcaf2
+    m_Address: Assets/SlotTemplate/Images/Slot/symbols/symbol_1.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c177a0ec4c98dde48bb10def365b8b11
+    m_Address: Assets/SlotTemplate/Images/Slot/symbols/symbol_3.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0d95899807277b449b8e721fdffe0d5d
+    m_Address: Assets/SlotTemplate/Images/Slot/symbols/symbol_2.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c01fd50a1dd075742bd1ebf558892431
+    m_Address: Assets/SlotTemplate/Images/Slot/symbols/symbol_4.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a5e9c6db0d8a7d44496e63494167cdcb
+    m_Address: Assets/SlotTemplate/Images/Slot/symbols/symbol_5.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: cab53966b9c4bb8459e00c4f71d65aba
+    m_Address: Assets/SlotTemplate/Images/Slot/symbols/symbol_6.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ce9c7b37e6c589e4eb36c4b24e8d9995
+    m_Address: Assets/SlotTemplate/Images/Slot/symbols/symbol_7.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 710b16500c21cb24793ef152909474da
+    m_Address: Assets/SlotTemplate/Images/Slot/symbols/symbol_8.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 59d4e8ff6ddd46c4aa5d62ba65ee58f7
+    m_Address: Assets/SlotTemplate/Images/Slot/symbols/symbol_9.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5824ae50353971448a35f886cca484a4
+    m_Address: Assets/SlotTemplate/Images/Slot/game_background.jpg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: 15babe0ec71f6584994ec83561063cbb, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 41a8ee237352397459e87c4a1ffe4906, type: 2}
+    - {fileID: 11400000, guid: 3b3624834c1302949be0b0db4566cfe0, type: 2}

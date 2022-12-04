@@ -2876,7 +2876,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: game manager
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2895808134190878846, guid: ba8125a7e0e3d4443929a23a294bd813, type: 3}
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: ba8125a7e0e3d4443929a23a294bd813, type: 3}
 --- !u!1 &2144068439
@@ -2890,6 +2891,7 @@ GameObject:
   - component: {fileID: 2144068440}
   - component: {fileID: 2144068442}
   - component: {fileID: 2144068441}
+  - component: {fileID: 2144068443}
   m_Layer: 5
   m_Name: game
   m_TagString: Untagged
@@ -2956,6 +2958,23 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2144068439}
   m_CullTransparentMesh: 1
+--- !u!114 &2144068443
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2144068439}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 27ae235b6acc0f44a8c11405ccef18d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sprite:
+    m_AssetGUID: 5824ae50353971448a35f886cca484a4
+    m_SubObjectName: 
+    m_SubObjectType: 
+    m_EditorAssetChanged: 0
 --- !u!1001 &5468001796687249355
 PrefabInstance:
   m_ObjectHideFlags: 0
