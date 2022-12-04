@@ -32,7 +32,6 @@ public class SessionController : MonoBehaviour
         slot.OnWinAction += OnSlotWin;
 
         slot.OnAutoSpinEnded += StopAutoSpinning;
- 
     }
 
     private void OnDisable()

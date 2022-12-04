@@ -53,7 +53,6 @@ public class SlotController : MonoBehaviour
     private void Start()
     {
         InitSlot();
-      
     }
 
     public enum SlotMode
@@ -75,7 +74,6 @@ public class SlotController : MonoBehaviour
         else 
         {
             yield return SpinReelsAuto(rowToForce:row);
-            
         }
     }
 
@@ -124,6 +122,7 @@ public class SlotController : MonoBehaviour
                 OnWinAction?.Invoke(entry.Value);
         }
     }
+
     IEnumerator SpinReelsAuto(int[] rowToForce = null)
     {
         for (int i = 0; i < NumberOfReels; i++)
@@ -135,7 +134,7 @@ public class SlotController : MonoBehaviour
 
             yield return new WaitForSeconds(0.5f);
         }
-        yield return new WaitUntil(() => reels.All(x => x.Stopped));
+        yield return new WaitUntil(() => reels.All(x => x.Stopped)); //will not get true winning row if dont wait. 
         OnAutoSpinEnded?.Invoke();
     }
 }
