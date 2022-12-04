@@ -10,6 +10,7 @@ public class SpinButtonController : BabaButton
 {
 
     public UnityAction SpinPressed;
+    public UnityAction SpinButtonHold;
     public UnityAction StopPressed;
     public UnityAction AutoSpinPressed;
 
@@ -35,14 +36,16 @@ public class SpinButtonController : BabaButton
     {
         shortPress += OnShortPress;
         longPressUp += OnLongPressUp;
-      
+        longPressHold += SpinButtonHold;
     }
     private void OnDisable()
     {
         shortPress -= OnShortPress;
         longPressUp -= OnLongPressUp;
-       
+        longPressHold -= SpinButtonHold;
     }
+
+  
     void OnLongPressUp()
     {
         if (currentButtonState == MainButtonState.STOP)

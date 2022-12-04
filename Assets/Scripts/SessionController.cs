@@ -26,6 +26,7 @@ public class SessionController : MonoBehaviour
         slotButton.SpinPressed += SpinSlot;
         slotButton.StopPressed += StopSlot;
         slotButton.AutoSpinPressed += AutoSpinSlot;
+        slotButton.SpinButtonHold += ShowAutospinMessage;
 
         slot.OnSpinAction += ReduceScore;
         slot.OnWinAction += OnSlotWin;
@@ -49,6 +50,7 @@ public class SessionController : MonoBehaviour
         slot.OnWinAction -= OnSlotWin;
 
         slot.OnAutoSpinEnded -= StopSlot;
+        slotButton.SpinButtonHold -= ShowAutospinMessage;
 
         if (GameManager.Instance)
             GameManager.Instance.ScoreUpdated -= scoreBoard.UpdateScoreBoard;
@@ -66,12 +68,6 @@ public class SessionController : MonoBehaviour
         scoreBoard.UpdateScoreBoard(GameManager.Instance.Score);
     }
 
-    void ShowNoFundsMessage()
-    {
-        StartCoroutine(RuntimeTools.DoForXSeconds(2, () => messageController.Activate(NoFundsMessage),
-            () => messageController.Deactivate()));
-    }
-
     void OnSlotWin(int matches)
     {
         GameManager.Instance.IncreaseScore(matches*spinPrize);
@@ -84,29 +80,37 @@ public class SessionController : MonoBehaviour
         GameManager.Instance.ReduceScore(spinCost);
     }
 
-    void SpinSlot()
+    void ShowAutospinMessage()
+    {
+        messageController.ShowMessage(AutoSpinRleaseMessage);
+    }
+    bool IsSpinAllowed()
     {
         if (!AllowSpin)
         {
-            ShowNoFundsMessage();
-            return;
+            messageController.ShowMessage(NoFundsMessage);
+            return false;
         }
-        StartCoroutine(slot.Spin());
-        slotButton.ChangeToStopState();
+        return true;
+    }
+
+    void SpinSlot()
+    {
+        if (IsSpinAllowed())
+        { 
+            StartCoroutine(slot.Spin());
+            slotButton.ChangeToStopState();
+        }
     }
 
     void AutoSpinSlot()
     {
-        if (!AllowSpin)
+        if (IsSpinAllowed())
         {
-            ShowNoFundsMessage();
-            return;
+            StartCoroutine(slot.Spin(true));
+            slotButton.ChangeToAutoState();
         }
-        StartCoroutine(slot.Spin(true));
-        slotButton.ChangeToAutoState();
     }
-
-   
 
     void StopSlot()
     {

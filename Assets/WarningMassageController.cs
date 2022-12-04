@@ -14,13 +14,19 @@ public class WarningMassageController : MonoBehaviour
         text = GetComponent<TMP_Text>();
     }
     // Start is called before the first frame update
-    public void Activate(string message)
+    void Activate(string message)
     {
         text.text = message;
     }
 
-    public void Deactivate()
+    void Deactivate()
     {
         text.text = "";
+    }
+
+    public void ShowMessage(string message, int second = 2)
+    {
+        StartCoroutine(RuntimeTools.DoForXSeconds(second, () => Activate(message),
+            () => Deactivate()));
     }
 }
