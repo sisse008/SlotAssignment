@@ -15,12 +15,12 @@ public class SessionController : MonoBehaviour
 
     public static int spinCost { get; } = 1000;
     public static int spinPrize { get; } = 5000;
-    public static int MaxMatchesPossible => 5;
+    public static int MaxMatchesPossibleInRow => 5;
     public bool AllowSpin => scoreManager.Score >= spinCost;
 
     public static string NoFundsMessage => "No Sufficient Funds To Play";
 
-    public static string AutoSpinRleaseMessage => "Rleace Spin Button To AutoSpin";
+    public static string AutoSpinRleaseMessage => "Rlease Spin Button To AutoSpin";
 
     private void OnEnable()
     {
@@ -39,12 +39,11 @@ public class SessionController : MonoBehaviour
         slotButton.SpinPressed -= SpinSlot;
         slotButton.StopPressed -= StopSlot;
         slotButton.AutoSpinPressed -= AutoSpinSlot;
+        slotButton.SpinButtonHold -= ShowAutospinMessage;
 
         slot.OnWinAction -= OnSlotWin;
 
         slot.OnAutoSpinEnded -= StopAutoSpinning;
-        slotButton.SpinButtonHold -= ShowAutospinMessage;
-
     }
 
     private void Start()
@@ -52,7 +51,6 @@ public class SessionController : MonoBehaviour
         InitNewSession();
     }
 
-  
     private void InitNewSession()
     {
         slotButton.ChangeToSpinState();
@@ -61,7 +59,7 @@ public class SessionController : MonoBehaviour
     void OnSlotWin(int matches)
     {
         scoreManager.IncreaseScore(matches * spinPrize);
-        if (matches == MaxMatchesPossible)
+        if (matches == MaxMatchesPossibleInRow)
             CanvasManager.Instance.ShowWinningPopup((matches * spinPrize).ToString());
     }
     void ShowAutospinMessage()
@@ -103,6 +101,7 @@ public class SessionController : MonoBehaviour
         slotButton.ChangeToSpinState();
         slot.CheckForWin();
     }
+
     void StopSlot()
     {
         slotButton.ChangeToSpinState();

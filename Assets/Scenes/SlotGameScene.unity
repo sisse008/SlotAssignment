@@ -2154,7 +2154,7 @@ GameObject:
   - component: {fileID: 1627505963}
   - component: {fileID: 1627505962}
   m_Layer: 0
-  m_Name: AssetsManager
+  m_Name: AddressablesManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2172,7 +2172,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73d14553a1d0dc04a99a72ef7829d497, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  reelPrefabAsset: {fileID: 2346150556415492436, guid: c509a9a07d7b99544bcf278245a2039d, type: 3}
+  reelPrefab:
+    prefabHolder: {fileID: 0}
+    addressableAsset:
+      m_AssetGUID: 
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+  images: []
+  winningSoundAudioClip:
+    audioSourceInstance: {fileID: 0}
+    addressableAsset:
+      m_AssetGUID: 
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
 --- !u!4 &1627505963
 Transform:
   m_ObjectHideFlags: 0
