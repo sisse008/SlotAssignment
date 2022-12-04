@@ -18,15 +18,19 @@ public class SpriteAddressableHandler : MonoBehaviour, IAddressableDependent<Ima
     }
     private void OnEnable()
     {
-        GetAsset(image);
+        GetAsset();
     }
 
     private void OnDisable()
     {
-        //TODO: unload assets
+        ReleaseAsset();
     }
 
-    public void GetAsset(Image image)
+    public void ReleaseAsset()
+    {
+
+    }
+    public void GetAsset()
     {
         StartCoroutine(GetAssetAndSetField(image));
     }

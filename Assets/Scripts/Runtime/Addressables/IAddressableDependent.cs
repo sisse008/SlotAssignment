@@ -5,7 +5,8 @@ using UnityEngine;
 
 public interface IAddressableDependent<T> 
 {
-    void GetAsset(T field);
+    void GetAsset();
 
+    void ReleaseAsset();
     IEnumerator GetAssetAndSetField(T field);
 }

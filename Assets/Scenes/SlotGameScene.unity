@@ -446,7 +446,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 148241938}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bf11aac87d73f1840acf239a05913c27, type: 3}
+  m_Script: {fileID: 11500000, guid: 27ae235b6acc0f44a8c11405ccef18d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   sprite:
@@ -799,7 +799,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 456811717}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bf11aac87d73f1840acf239a05913c27, type: 3}
+  m_Script: {fileID: 11500000, guid: 27ae235b6acc0f44a8c11405ccef18d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   sprite:
@@ -2796,7 +2796,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2012439552}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bf11aac87d73f1840acf239a05913c27, type: 3}
+  m_Script: {fileID: 11500000, guid: 27ae235b6acc0f44a8c11405ccef18d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   sprite:
@@ -3070,6 +3070,77 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2116644303, guid: 99cfaa9277623f348af19f928255ad5f, type: 3}
+    - {fileID: 879928024, guid: 99cfaa9277623f348af19f928255ad5f, type: 3}
+    - {fileID: 2131158696, guid: 99cfaa9277623f348af19f928255ad5f, type: 3}
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 99cfaa9277623f348af19f928255ad5f, type: 3}
+--- !u!1 &5468001796687249356 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5101275350391739987, guid: 99cfaa9277623f348af19f928255ad5f, type: 3}
+  m_PrefabInstance: {fileID: 5468001796687249355}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &5468001796687249357 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5100692771562229669, guid: 99cfaa9277623f348af19f928255ad5f, type: 3}
+  m_PrefabInstance: {fileID: 5468001796687249355}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &5468001796687249358
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5468001796687249356}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 27ae235b6acc0f44a8c11405ccef18d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sprite:
+    m_AssetGUID: 85d62be1340f540b68fb4c9a1bef7091
+    m_SubObjectName: 
+    m_SubObjectType: 
+    m_EditorAssetChanged: 0
+--- !u!114 &5468001796687249359
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5468001796687249357}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 27ae235b6acc0f44a8c11405ccef18d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sprite:
+    m_AssetGUID: ba25e5d48b7ee472d9377687b5894f0d
+    m_SubObjectName: bigWinHolder_noShare
+    m_SubObjectType: UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+    m_EditorAssetChanged: 1
+--- !u!1 &5468001796687249360 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5100333382097522775, guid: 99cfaa9277623f348af19f928255ad5f, type: 3}
+  m_PrefabInstance: {fileID: 5468001796687249355}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &5468001796687249361
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5468001796687249360}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 27ae235b6acc0f44a8c11405ccef18d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sprite:
+    m_AssetGUID: ba25e5d48b7ee472d9377687b5894f0d
+    m_SubObjectName: bigWinText
+    m_SubObjectType: UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+    m_EditorAssetChanged: 0

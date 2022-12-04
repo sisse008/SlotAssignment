@@ -16,15 +16,19 @@ public class AudioClipAddressableHandler : MonoBehaviour, IAddressableDependent<
     }
     private void OnEnable()
     {
-        GetAsset(audioSource);
+        GetAsset();
     }
 
     private void OnDisable()
     {
-        //TODO: unload assets
+        ReleaseAsset();
     }
 
-    public void GetAsset(AudioSource audioSource)
+    public void ReleaseAsset()
+    {
+        
+    }
+    public void GetAsset()
     {
         StartCoroutine(GetAssetAndSetField(audioSource));
     }

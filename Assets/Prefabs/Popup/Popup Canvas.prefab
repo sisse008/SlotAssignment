@@ -36,7 +36,7 @@ RectTransform:
   - {fileID: 8855194879449190162}
   - {fileID: 4038105742808156589}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -382,15 +382,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 5100333382097522775}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bf11aac87d73f1840acf239a05913c27, type: 3}
+  m_Script: {fileID: 11500000, guid: 27ae235b6acc0f44a8c11405ccef18d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   sprite:
-    m_AssetGUID: ba25e5d48b7ee472d9377687b5894f0d
-    m_SubObjectName: bigWinText
-    m_SubObjectType: UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
-    m_EditorAssetChanged: 1
+    m_AssetGUID: 
+    m_SubObjectName: 
+    m_SubObjectType: 
+    m_EditorAssetChanged: 0
 --- !u!1 &5100603324241249835 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1620469587089214, guid: c136c8aa2eaa12c439fab5278e40a3c7, type: 3}
@@ -523,15 +522,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 5100692771562229669}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bf11aac87d73f1840acf239a05913c27, type: 3}
+  m_Script: {fileID: 11500000, guid: 27ae235b6acc0f44a8c11405ccef18d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   sprite:
-    m_AssetGUID: ba25e5d48b7ee472d9377687b5894f0d
-    m_SubObjectName: bigWinHolder_noShare
-    m_SubObjectType: UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
-    m_EditorAssetChanged: 1
+    m_AssetGUID: 
+    m_SubObjectName: 
+    m_SubObjectType: 
+    m_EditorAssetChanged: 0
 --- !u!1 &5101275350391739987 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1799465434761030, guid: c136c8aa2eaa12c439fab5278e40a3c7, type: 3}
@@ -546,11 +544,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 5101275350391739987}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bf11aac87d73f1840acf239a05913c27, type: 3}
+  m_Script: {fileID: 11500000, guid: 27ae235b6acc0f44a8c11405ccef18d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   sprite:
-    m_AssetGUID: 85d62be1340f540b68fb4c9a1bef7091
+    m_AssetGUID: 
     m_SubObjectName: 
     m_SubObjectType: 
     m_EditorAssetChanged: 0

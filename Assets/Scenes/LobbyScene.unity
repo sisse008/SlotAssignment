@@ -137,6 +137,7 @@ GameObject:
   - component: {fileID: 771366440}
   - component: {fileID: 771366442}
   - component: {fileID: 771366441}
+  - component: {fileID: 771366443}
   m_Layer: 5
   m_Name: slot game button
   m_TagString: Untagged
@@ -161,7 +162,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 390.99945, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &771366438
@@ -184,7 +185,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: c93bade73e5fa134a931bc5539cf91ba, type: 3}
+  m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -292,6 +293,23 @@ MonoBehaviour:
   m_FlexibleWidth: 0
   m_FlexibleHeight: 0
   m_LayoutPriority: 1
+--- !u!114 &771366443
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 771366436}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 27ae235b6acc0f44a8c11405ccef18d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sprite:
+    m_AssetGUID: c93bade73e5fa134a931bc5539cf91ba
+    m_SubObjectName: 
+    m_SubObjectType: 
+    m_EditorAssetChanged: 0
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0
@@ -631,6 +649,7 @@ GameObject:
   - component: {fileID: 2144068440}
   - component: {fileID: 2144068442}
   - component: {fileID: 2144068441}
+  - component: {fileID: 2144068443}
   m_Layer: 5
   m_Name: bg
   m_TagString: Untagged
@@ -679,7 +698,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 5824ae50353971448a35f886cca484a4, type: 3}
+  m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -697,6 +716,23 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2144068439}
   m_CullTransparentMesh: 1
+--- !u!114 &2144068443
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2144068439}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 27ae235b6acc0f44a8c11405ccef18d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sprite:
+    m_AssetGUID: 5824ae50353971448a35f886cca484a4
+    m_SubObjectName: 
+    m_SubObjectType: 
+    m_EditorAssetChanged: 0
 --- !u!1001 &973899859219168841
 PrefabInstance:
   m_ObjectHideFlags: 0

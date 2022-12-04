@@ -97,6 +97,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c93bade73e5fa134a931bc5539cf91ba
+    m_Address: Assets/SlotTemplate/Images/General/slot_icon.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 15babe0ec71f6584994ec83561063cbb, type: 2}
   m_SchemaSet:
