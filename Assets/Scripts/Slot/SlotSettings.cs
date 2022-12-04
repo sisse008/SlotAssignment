@@ -12,6 +12,11 @@ public class SlotSettings : ScriptableObject
     [SerializeField] float numOfCyclesAutoSpin = 10;
     public float NumOfCyclesAutoSpin => numOfCyclesAutoSpin;
 
-    [SerializeField] List<ReelSettings> reels;
-    public List<ReelSettings> Reels => new List<ReelSettings>(reels);
+    [SerializeField] ReelSettings reels;
+
+    public ReelSettings ReelsSettings => reels; 
+
+    [Range(2,5)]
+    [SerializeField] int numberOfReels;
+    public int NumberOfReels => numberOfReels;
 }

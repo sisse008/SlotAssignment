@@ -42,10 +42,10 @@ public class SlotController : MonoBehaviour
         }
 #endif
        
-        foreach (ReelSettings reelSetting in settings.Reels)
+        for(int i=0; i<settings.NumberOfReels;i++)
         {
             ReelController reel = Instantiate(AssetsManager.Instance.reelPrefabAsset, reelsHolder);
-            reel.InitReel(reelSetting);
+            reel.InitReel(settings.ReelsSettings);
             reels.Add(reel);
         }
     }
