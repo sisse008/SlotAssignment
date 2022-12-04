@@ -11,11 +11,12 @@ public class SessionController : MonoBehaviour
     [SerializeField] SpinButtonController slotButton;
     [SerializeField] ScoreBoard scoreBoard;
     [SerializeField] GameObject notFundsMessage;
+   
 
     public static int spinCost { get; } = 1000;
     public static int spinPrize { get; } = 5000;
     public static bool AllowSpin => GameManager.Instance.Score >= spinCost;
-   
+    public static int MaxMatchesPossible => 5;
 
     private void OnEnable()
     {
@@ -27,6 +28,8 @@ public class SessionController : MonoBehaviour
         slot.OnWinAction += OnSlotWin;
 
         slot.OnAutoSpinEnded += StopSlot;
+
+      
 
         if (GameManager.Instance)
             GameManager.Instance.ScoreUpdated += scoreBoard.UpdateScoreBoard;  
@@ -52,6 +55,8 @@ public class SessionController : MonoBehaviour
     {
         InitNewSession();
     }
+
+  
     private void InitNewSession()
     {
         slotButton.ChangeToSpinState();
@@ -66,6 +71,9 @@ public class SessionController : MonoBehaviour
     void OnSlotWin(int matches)
     {
         GameManager.Instance.IncreaseScore(matches*spinPrize);
+        if (matches == MaxMatchesPossible)
+            CanvasManager.Instance.ShowWinningPopup();
+
     }
     void ReduceScore()
     {
@@ -93,6 +101,8 @@ public class SessionController : MonoBehaviour
         StartCoroutine(slot.Spin(true));
         slotButton.ChangeToAutoState();
     }
+
+   
 
     void StopSlot()
     {
