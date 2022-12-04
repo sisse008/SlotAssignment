@@ -113,7 +113,7 @@ public class SessionController : MonoBehaviour
             row[i] = Tools.RandomNumberFromRangeExcept(1,9,winningID);
 
         for (int i = 0; i < numOfMatchesToForce; i++)
-            row[reelPositions[i]] = winningID;
+            row[reelPositions[i] -1] = winningID;
 
         return row;
     }

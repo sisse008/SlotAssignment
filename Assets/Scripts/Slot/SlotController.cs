@@ -84,7 +84,7 @@ public class SlotController : MonoBehaviour
     {
         currentSlotMode = SlotMode.IDLE;
        
-        StartCoroutine(StopReels(action:() => CheckForWin(), row: winningRow));    
+        StartCoroutine(StopReels(action:() => CheckForWin(), resultsToForce: winningRow));    
     }
 
     IEnumerator SpinReels()
@@ -96,14 +96,14 @@ public class SlotController : MonoBehaviour
         }
     }
 
-    IEnumerator StopReels(Action action = null, int[] row = null)
+    IEnumerator StopReels(Action action = null, int[] resultsToForce = null)
     {
         for(int i=0; i< NumberOfReels; i++)
         {
-            if(row == null || row.Length != NumberOfReels)
+            if(resultsToForce == null || resultsToForce.Length != NumberOfReels)
                 reels[i].Stop();
             else
-                reels[i].Stop(row[i]);
+                reels[i].Stop(resultsToForce[i]);
 
             yield return new WaitForSeconds(0.5f);
         }
