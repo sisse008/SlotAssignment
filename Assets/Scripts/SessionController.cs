@@ -60,6 +60,7 @@ public class SessionController : MonoBehaviour
     private void InitNewSession()
     {
         slotButton.ChangeToSpinState();
+        scoreBoard.UpdateScoreBoard(GameManager.Instance.Score);
     }
 
     void ShowNoFundsMessage()
