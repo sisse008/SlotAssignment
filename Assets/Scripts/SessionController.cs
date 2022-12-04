@@ -10,13 +10,16 @@ public class SessionController : MonoBehaviour
     [SerializeField] SlotController slot;
     [SerializeField] SpinButtonController slotButton;
     [SerializeField] ScoreBoard scoreBoard;
-    [SerializeField] GameObject notFundsMessage;
-   
+    [SerializeField] WarningMassageController messageController;
 
     public static int spinCost { get; } = 1000;
     public static int spinPrize { get; } = 5000;
     public static bool AllowSpin => GameManager.Instance.Score >= spinCost;
     public static int MaxMatchesPossible => 5;
+
+    public static string NoFundsMessage => "No Sufficient Funds To Play";
+    //TODO
+    public static string AutoSpinRleaseMessage => "Rleace Spin Button To AutoSpin";
 
     private void OnEnable()
     {
@@ -65,8 +68,8 @@ public class SessionController : MonoBehaviour
 
     void ShowNoFundsMessage()
     {
-        StartCoroutine(RuntimeTools.DoForXSeconds(2, () => notFundsMessage.SetActive(true),
-            () => notFundsMessage.SetActive(false)));
+        StartCoroutine(RuntimeTools.DoForXSeconds(2, () => messageController.Activate(NoFundsMessage),
+            () => messageController.Deactivate()));
     }
 
     void OnSlotWin(int matches)
