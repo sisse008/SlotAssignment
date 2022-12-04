@@ -36,7 +36,7 @@ RectTransform:
   - {fileID: 8855194879449190162}
   - {fileID: 4038105742808156589}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -113,7 +113,7 @@ CanvasGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5468001796908419413}
   m_Enabled: 1
-  m_Alpha: 0
+  m_Alpha: 1
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
@@ -143,6 +143,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BigWinPopup
       objectReference: {fileID: 0}
+    - target: {fileID: 114009987791433184, guid: c136c8aa2eaa12c439fab5278e40a3c7, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 114221539728461010, guid: c136c8aa2eaa12c439fab5278e40a3c7, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
       value: 1
@@ -170,6 +174,18 @@ PrefabInstance:
     - target: {fileID: 114221539728461010, guid: c136c8aa2eaa12c439fab5278e40a3c7, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 114570619652244036, guid: c136c8aa2eaa12c439fab5278e40a3c7, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 114632745776316364, guid: c136c8aa2eaa12c439fab5278e40a3c7, type: 3}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: 997a43b767814dd0a7642ec9b78cba41, type: 3}
+    - target: {fileID: 114873292462005342, guid: c136c8aa2eaa12c439fab5278e40a3c7, type: 3}
+      propertyPath: m_Sprite
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 224119772140653960, guid: c136c8aa2eaa12c439fab5278e40a3c7, type: 3}
       propertyPath: m_LocalScale.x
@@ -352,6 +368,29 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 9135272270842009784, guid: c136c8aa2eaa12c439fab5278e40a3c7, type: 3}
   m_PrefabInstance: {fileID: 5101798265645961493}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &5100333382097522775 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1473679656829250, guid: c136c8aa2eaa12c439fab5278e40a3c7, type: 3}
+  m_PrefabInstance: {fileID: 5101798265645961493}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2131158696
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5100333382097522775}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf11aac87d73f1840acf239a05913c27, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sprite:
+    m_AssetGUID: ba25e5d48b7ee472d9377687b5894f0d
+    m_SubObjectName: bigWinText
+    m_SubObjectType: UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+    m_EditorAssetChanged: 1
 --- !u!1 &5100603324241249835 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1620469587089214, guid: c136c8aa2eaa12c439fab5278e40a3c7, type: 3}
@@ -367,7 +406,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 0704fdd456eb3c149810674a4c7aefd7, type: 3}
+  m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -453,6 +492,68 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1664599283
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5100603324241249835}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc9f89ed9a2407a4c86a203f2850b634, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioClip:
+    m_AssetGUID: 0704fdd456eb3c149810674a4c7aefd7
+    m_SubObjectName: 
+    m_SubObjectType: 
+    m_EditorAssetChanged: 0
+--- !u!1 &5100692771562229669 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1257226833927856, guid: c136c8aa2eaa12c439fab5278e40a3c7, type: 3}
+  m_PrefabInstance: {fileID: 5101798265645961493}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &879928024
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5100692771562229669}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf11aac87d73f1840acf239a05913c27, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sprite:
+    m_AssetGUID: ba25e5d48b7ee472d9377687b5894f0d
+    m_SubObjectName: bigWinHolder_noShare
+    m_SubObjectType: UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+    m_EditorAssetChanged: 1
+--- !u!1 &5101275350391739987 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1799465434761030, guid: c136c8aa2eaa12c439fab5278e40a3c7, type: 3}
+  m_PrefabInstance: {fileID: 5101798265645961493}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2116644303
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5101275350391739987}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf11aac87d73f1840acf239a05913c27, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sprite:
+    m_AssetGUID: 85d62be1340f540b68fb4c9a1bef7091
+    m_SubObjectName: 
+    m_SubObjectType: 
+    m_EditorAssetChanged: 0
 --- !u!114 &5141557860313329369 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 114632745776316364, guid: c136c8aa2eaa12c439fab5278e40a3c7, type: 3}

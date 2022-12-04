@@ -67,6 +67,36 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 97c3256b72b13f54b9a699c8aa62aa84
+    m_Address: Assets/SlotTemplate/Images/General/return_button.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a5d4cc5ea1c30694ea831f263d4aa137
+    m_Address: Assets/SlotTemplate/Images/General/spin_button.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 94b986df14e10174c90e46e3d6511a99
+    m_Address: Assets/SlotTemplate/Images/Slot/game_mask.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0704fdd456eb3c149810674a4c7aefd7
+    m_Address: Assets/SlotTemplate/Sounds/BigWinSound.mp3
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ba25e5d48b7ee472d9377687b5894f0d
+    m_Address: Assets/SlotTemplate/Images/BigWinPopup/BigWinSprite.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 85d62be1340f540b68fb4c9a1bef7091
+    m_Address: Assets/SlotTemplate/Images/BigWinPopup/CloseButtonSprite.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 15babe0ec71f6584994ec83561063cbb, type: 2}
   m_SchemaSet:
