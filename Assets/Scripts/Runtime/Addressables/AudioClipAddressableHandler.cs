@@ -26,7 +26,9 @@ public class AudioClipAddressableHandler : MonoBehaviour, IAddressableDependent<
 
     public void ReleaseAsset()
     {
-        
+        var asset = audioSource.clip;
+        audioSource.clip = null;
+        Addressables.Release(asset);
     }
     public void GetAsset()
     {

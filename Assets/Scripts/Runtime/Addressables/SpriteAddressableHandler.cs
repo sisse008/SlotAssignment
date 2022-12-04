@@ -28,7 +28,9 @@ public class SpriteAddressableHandler : MonoBehaviour, IAddressableDependent<Ima
 
     public void ReleaseAsset()
     {
-
+        var asset = image.sprite;
+        image.sprite = null;
+        Addressables.Release(asset);
     }
     public void GetAsset()
     {
