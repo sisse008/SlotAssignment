@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 433749925961755664}
   - component: {fileID: 5086591890427907960}
   - component: {fileID: 2109086750}
-  - component: {fileID: 2895808134190878846}
   m_Layer: 0
   m_Name: game manager
   m_TagString: Untagged
@@ -33,7 +32,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &433749925961755664
 MonoBehaviour:
@@ -73,15 +72,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   reelPrefab: {fileID: 2346150556415492436, guid: c509a9a07d7b99544bcf278245a2039d, type: 3}
---- !u!114 &2895808134190878846
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8017686615123578030}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dca33129aa500134b9ab67f8fe7efce3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

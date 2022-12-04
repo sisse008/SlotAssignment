@@ -6,6 +6,7 @@ public class CanvasManager : MonoBehaviour
 {
     [SerializeField] PopupController popup;
     [SerializeField] MainCanvas mainCanvas;
+    [SerializeField] LoadingCanvasController loadingCanvas;
 
     private static CanvasManager instance = null;
     public static CanvasManager Instance
@@ -22,13 +23,16 @@ public class CanvasManager : MonoBehaviour
     private void OnEnable()
     {
         popup.PopupDisplayedAction += mainCanvas.ToggleCanvas;
+        loadingCanvas.LoadingDisplayedAction += mainCanvas.ToggleCanvas;
     }
 
     private void OnDisable()
     {
         popup.PopupDisplayedAction -= mainCanvas.ToggleCanvas;
+        loadingCanvas.LoadingDisplayedAction -= mainCanvas.ToggleCanvas;
     }
 
+  
     public void ShowWinningPopup(string text = "")
     {
         popup.EnablePopup("$" + text);

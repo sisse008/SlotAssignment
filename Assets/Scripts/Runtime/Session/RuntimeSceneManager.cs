@@ -5,8 +5,32 @@ using UnityEngine.SceneManagement;
 
 public class RuntimeSceneManager : MonoBehaviour
 {
+    public LoadingCanvasController loadingScreen;
+
     public const int MainGameIndex = 1;
     public const int MenuSceneIndex = 0;
+
+    void OnEnable()
+    {
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+    void OnDisable()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+
+    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        ShowLoadingScreen(2);
+    }
+
+    public void ShowLoadingScreen(int seconds)
+    {
+        if (loadingScreen == null)
+            return;
+        StartCoroutine(RuntimeTools.DoForXSeconds(seconds, () => loadingScreen.EnableLoadingCanvas(),
+            () => loadingScreen.DisableLoadingCanvas()));
+    }
 
     public void SwitchToMainMenuScene()
     {
