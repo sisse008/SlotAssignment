@@ -44,7 +44,7 @@ public class SlotController : MonoBehaviour
        
         for(int i=0; i<settings.NumberOfReels;i++)
         {
-            ReelController reel = Instantiate(AddressablesManager.Instance.ReelsPrefab,
+            ReelController reel = Instantiate(RuntimeRefferenceHolder.Instance.reelPrefab,
                 reelsHolder);
             reel.InitReel(settings.ReelsSettings);
             reels.Add(reel);

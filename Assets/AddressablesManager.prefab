@@ -1,0 +1,166 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1976022397898701161
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1976022397898701163}
+  - component: {fileID: 1976022397898701162}
+  m_Layer: 0
+  m_Name: AddressablesManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1976022397898701163
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1976022397898701161}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 316.0432, y: 400.7035, z: -2.6499634}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1976022397898701162
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1976022397898701161}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73d14553a1d0dc04a99a72ef7829d497, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  assetDependentImages:
+  - imageInstance: {fileID: 0}
+    addressableAsset:
+      m_AssetGUID: 5824ae50353971448a35f886cca484a4
+      m_SubObjectName: 
+      m_SubObjectType: UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      m_EditorAssetChanged: 0
+  - imageInstance: {fileID: 0}
+    addressableAsset:
+      m_AssetGUID: 94b986df14e10174c90e46e3d6511a99
+      m_SubObjectName: 
+      m_SubObjectType: UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      m_EditorAssetChanged: 0
+  - imageInstance: {fileID: 0}
+    addressableAsset:
+      m_AssetGUID: 97c3256b72b13f54b9a699c8aa62aa84
+      m_SubObjectName: 
+      m_SubObjectType: UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      m_EditorAssetChanged: 0
+  - imageInstance: {fileID: 0}
+    addressableAsset:
+      m_AssetGUID: a5d4cc5ea1c30694ea831f263d4aa137
+      m_SubObjectName: 
+      m_SubObjectType: UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      m_EditorAssetChanged: 0
+  - imageInstance: {fileID: 0}
+    addressableAsset:
+      m_AssetGUID: 2afff9f94679ae4488578576abcdcaf2
+      m_SubObjectName: 
+      m_SubObjectType: UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      m_EditorAssetChanged: 0
+  - imageInstance: {fileID: 0}
+    addressableAsset:
+      m_AssetGUID: 2afff9f94679ae4488578576abcdcaf2
+      m_SubObjectName: 
+      m_SubObjectType: UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      m_EditorAssetChanged: 0
+  - imageInstance: {fileID: 0}
+    addressableAsset:
+      m_AssetGUID: 85d62be1340f540b68fb4c9a1bef7091
+      m_SubObjectName: 
+      m_SubObjectType: UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      m_EditorAssetChanged: 0
+  - imageInstance: {fileID: 0}
+    addressableAsset:
+      m_AssetGUID: 2afff9f94679ae4488578576abcdcaf2
+      m_SubObjectName: 
+      m_SubObjectType: UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      m_EditorAssetChanged: 0
+  - imageInstance: {fileID: 0}
+    addressableAsset:
+      m_AssetGUID: 0d95899807277b449b8e721fdffe0d5d
+      m_SubObjectName: 
+      m_SubObjectType: UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      m_EditorAssetChanged: 0
+  - imageInstance: {fileID: 0}
+    addressableAsset:
+      m_AssetGUID: c177a0ec4c98dde48bb10def365b8b11
+      m_SubObjectName: 
+      m_SubObjectType: UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      m_EditorAssetChanged: 0
+  - imageInstance: {fileID: 0}
+    addressableAsset:
+      m_AssetGUID: c01fd50a1dd075742bd1ebf558892431
+      m_SubObjectName: 
+      m_SubObjectType: UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      m_EditorAssetChanged: 0
+  - imageInstance: {fileID: 0}
+    addressableAsset:
+      m_AssetGUID: a5e9c6db0d8a7d44496e63494167cdcb
+      m_SubObjectName: 
+      m_SubObjectType: UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      m_EditorAssetChanged: 0
+  - imageInstance: {fileID: 0}
+    addressableAsset:
+      m_AssetGUID: cab53966b9c4bb8459e00c4f71d65aba
+      m_SubObjectName: 
+      m_SubObjectType: UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      m_EditorAssetChanged: 0
+  - imageInstance: {fileID: 0}
+    addressableAsset:
+      m_AssetGUID: ce9c7b37e6c589e4eb36c4b24e8d9995
+      m_SubObjectName: 
+      m_SubObjectType: UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      m_EditorAssetChanged: 0
+  - imageInstance: {fileID: 0}
+    addressableAsset:
+      m_AssetGUID: 710b16500c21cb24793ef152909474da
+      m_SubObjectName: 
+      m_SubObjectType: UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      m_EditorAssetChanged: 0
+  - imageInstance: {fileID: 0}
+    addressableAsset:
+      m_AssetGUID: 59d4e8ff6ddd46c4aa5d62ba65ee58f7
+      m_SubObjectName: 
+      m_SubObjectType: UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      m_EditorAssetChanged: 0
+  winningSoundAudioClip:
+    audioSourceInstance: {fileID: 0}
+    addressableAsset:
+      m_AssetGUID: 0704fdd456eb3c149810674a4c7aefd7
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
