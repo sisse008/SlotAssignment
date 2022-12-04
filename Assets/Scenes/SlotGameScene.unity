@@ -3009,6 +3009,18 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3839773523100109451, guid: 3bda82038dd7742449cff7a7f1d85de7, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3839773523100109451, guid: 3bda82038dd7742449cff7a7f1d85de7, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3839773523100109451, guid: 3bda82038dd7742449cff7a7f1d85de7, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3839773523100109451, guid: 3bda82038dd7742449cff7a7f1d85de7, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -3059,6 +3071,10 @@ PrefabInstance:
     - target: {fileID: 3839773523100109494, guid: 3bda82038dd7742449cff7a7f1d85de7, type: 3}
       propertyPath: m_Name
       value: loading scene canvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 3839773523100109494, guid: 3bda82038dd7742449cff7a7f1d85de7, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5776413001932379743, guid: 3bda82038dd7742449cff7a7f1d85de7, type: 3}
       propertyPath: m_SizeDelta.x

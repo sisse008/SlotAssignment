@@ -5,7 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class RuntimeSceneManager : MonoBehaviour
 {
-    public LoadingCanvasController loadingScreen;
+    [SerializeField] bool showLoadingScreen = true;
+    [SerializeField] LoadingCanvasController loadingScreen;
 
     public const int MainGameIndex = 1;
     public const int MenuSceneIndex = 0;
@@ -21,7 +22,8 @@ public class RuntimeSceneManager : MonoBehaviour
 
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        ShowLoadingScreen(2);
+        if(showLoadingScreen)
+            ShowLoadingScreen(1);
     }
 
     public void ShowLoadingScreen(int seconds)
