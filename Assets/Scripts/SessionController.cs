@@ -18,7 +18,7 @@ public class SessionController : MonoBehaviour
     public static int MaxMatchesPossible => 5;
 
     public static string NoFundsMessage => "No Sufficient Funds To Play";
-    //TODO
+
     public static string AutoSpinRleaseMessage => "Rleace Spin Button To AutoSpin";
 
     private void OnEnable()
@@ -33,8 +33,6 @@ public class SessionController : MonoBehaviour
 
         slot.OnAutoSpinEnded += StopSlot;
 
-      
-
         if (GameManager.Instance)
             GameManager.Instance.ScoreUpdated += scoreBoard.UpdateScoreBoard;  
     }
@@ -44,7 +42,6 @@ public class SessionController : MonoBehaviour
         slotButton.SpinPressed -= SpinSlot;
         slotButton.StopPressed -= StopSlot;
         slotButton.AutoSpinPressed -= AutoSpinSlot;
-
 
         slot.OnSpinAction -= ReduceScore;
         slot.OnWinAction -= OnSlotWin;
@@ -72,7 +69,7 @@ public class SessionController : MonoBehaviour
     {
         GameManager.Instance.IncreaseScore(matches*spinPrize);
         if (matches == MaxMatchesPossible)
-            CanvasManager.Instance.ShowWinningPopup();
+            CanvasManager.Instance.ShowWinningPopup((matches * spinPrize).ToString());
 
     }
     void ReduceScore()

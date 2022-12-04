@@ -10,9 +10,12 @@ public class PopupController : CanvasController
     public UnityAction<bool> PopupDisplayedAction;
     [SerializeField] AudioSource popupSound;
 
-    public void EnablePopup()
+    [SerializeField] Text message;
+
+    public void EnablePopup(string text = "")
     {
         ShowCanvas();
+        message.text = text;
         popupSound.Play();
         PopupDisplayedAction?.Invoke(true);
     }
@@ -21,6 +24,7 @@ public class PopupController : CanvasController
     {
         HideCanvas();
         popupSound.Stop();
+        message.text = string.Empty;
         PopupDisplayedAction?.Invoke(false);
     }
 }

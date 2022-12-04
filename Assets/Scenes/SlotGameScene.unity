@@ -2937,14 +2937,10 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 5030605536709489153, guid: 99cfaa9277623f348af19f928255ad5f, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 58.69995
-      objectReference: {fileID: 0}
-    - target: {fileID: 5468001796908419412, guid: 99cfaa9277623f348af19f928255ad5f, type: 3}
-      propertyPath: m_Alpha
-      value: 0
-      objectReference: {fileID: 0}
+    - target: {fileID: 5141557860313329369, guid: 99cfaa9277623f348af19f928255ad5f, type: 3}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: 997a43b767814dd0a7642ec9b78cba41, type: 3}
     - target: {fileID: 5468001796908419413, guid: 99cfaa9277623f348af19f928255ad5f, type: 3}
       propertyPath: m_Name
       value: Popup Canvas

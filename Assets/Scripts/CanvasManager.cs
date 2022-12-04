@@ -29,8 +29,8 @@ public class CanvasManager : MonoBehaviour
         popup.PopupDisplayedAction -= mainCanvas.ToggleCanvas;
     }
 
-    public void ShowWinningPopup()
+    public void ShowWinningPopup(string text = "")
     {
-        popup.EnablePopup();
+        popup.EnablePopup("$" + text);
     }
 }
