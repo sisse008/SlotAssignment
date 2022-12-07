@@ -1,6 +1,3 @@
-# BabaHomeAssignment
-Important note
-I did not find a way to add the Groups setting of the addressable system to a unity package. Without the addressables setting assets will not be loaded. Therefore, I am handing over the unity project.
 
 
 To run the game:
