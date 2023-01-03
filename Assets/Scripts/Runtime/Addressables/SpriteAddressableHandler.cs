@@ -9,7 +9,7 @@ using UnityEngine.AddressableAssets;
 public class SpriteAddressableHandler : MonoBehaviour, IAddressableDependent<Image>
 {
     Image image;
-    [SerializeField] AssetReference sprite;
+    [SerializeField]public AssetReference sprite;
 
 
     private void Awake()
@@ -34,6 +34,10 @@ public class SpriteAddressableHandler : MonoBehaviour, IAddressableDependent<Ima
     }
     public void GetAsset()
     {
+        if (Application.platform == RuntimePlatform.WebGLPlayer)
+        {
+            return;
+        }
         StartCoroutine(GetAssetAndSetField(image));
     }
 

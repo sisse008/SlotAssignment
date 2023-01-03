@@ -27,10 +27,15 @@ public class GameManager : MonoBehaviour
 
     public int score;
 
-    private void Start()
+    private void OnEnable()
     {
         score = 100000;
         Application.targetFrameRate = 30;
+    }
+
+    private void Start()
+    {
+        
     }
 
     public void UpdateScore(int newScore)
