@@ -719,7 +719,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 410, y: -325.43262}
+  m_AnchoredPosition: {x: 410, y: -298.9823}
   m_SizeDelta: {x: 800, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &456811719
@@ -772,7 +772,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 973a60c3bcf8b954ba569d0bddfc6385, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  settings: {fileID: 11400000, guid: a129784d3aa59a14b80c8217a5bca096, type: 2}
+  settings: {fileID: 11400000, guid: ae8040064c9691f4b872b3c74cd8a6ca, type: 2}
   reelsHolder: {fileID: 217289282}
   reels: []
   debugReel: {fileID: 0}
@@ -1852,7 +1852,7 @@ CanvasGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1219088997}
   m_Enabled: 1
-  m_Alpha: 0
+  m_Alpha: 1
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
@@ -2330,17 +2330,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1656641947}
   m_CullTransparentMesh: 1
---- !u!114 &1707982214 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2983564742553700610, guid: 99cfaa9277623f348af19f928255ad5f, type: 3}
-  m_PrefabInstance: {fileID: 5468001796687249355}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1713459239
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3167,10 +3156,6 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 4438837992132574112, guid: 99cfaa9277623f348af19f928255ad5f, type: 3}
-      propertyPath: message
-      value: 
-      objectReference: {fileID: 1707982214}
     - target: {fileID: 5030804196687731869, guid: 99cfaa9277623f348af19f928255ad5f, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -3217,6 +3202,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5031518044448951517, guid: 99cfaa9277623f348af19f928255ad5f, type: 3}
       propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5468001796908419412, guid: 99cfaa9277623f348af19f928255ad5f, type: 3}
+      propertyPath: m_Alpha
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5468001796908419413, guid: 99cfaa9277623f348af19f928255ad5f, type: 3}

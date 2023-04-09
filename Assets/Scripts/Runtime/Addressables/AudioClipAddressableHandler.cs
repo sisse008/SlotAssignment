@@ -42,6 +42,7 @@ public class AudioClipAddressableHandler : MonoBehaviour, IAddressableDependent<
         if (op.Result != null)
         {
             audioSource.clip = op.Result;
+           // Debug.Log("sucessfuly got audio asset: " + op.Result.name);
         }
     }
 }

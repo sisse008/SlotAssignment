@@ -44,6 +44,7 @@ public class SpriteAddressableHandler : MonoBehaviour, IAddressableDependent<Ima
         if (op.Result != null)
         {
             image.sprite = op.Result;
+            //Debug.Log("sucessfuly got sprite asset: " + op.Result.name);
         }
     }
 }

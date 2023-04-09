@@ -451,9 +451,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sprite:
     m_AssetGUID: 97c3256b72b13f54b9a699c8aa62aa84
-    m_SubObjectName: 
-    m_SubObjectType: 
-    m_EditorAssetChanged: 0
+    m_SubObjectName: return_button
+    m_SubObjectType: UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+    m_EditorAssetChanged: 1
 --- !u!1 &180729543
 GameObject:
   m_ObjectHideFlags: 0
@@ -719,7 +720,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 410, y: -219.42206}
+  m_AnchoredPosition: {x: 410, y: -298.9823}
   m_SizeDelta: {x: 800, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &456811719
@@ -805,9 +806,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sprite:
     m_AssetGUID: 94b986df14e10174c90e46e3d6511a99
-    m_SubObjectName: 
-    m_SubObjectType: 
-    m_EditorAssetChanged: 0
+    m_SubObjectName: game_mask
+    m_SubObjectType: UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+    m_EditorAssetChanged: 1
 --- !u!114 &456811725
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3035,9 +3037,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sprite:
     m_AssetGUID: 5824ae50353971448a35f886cca484a4
-    m_SubObjectName: 
-    m_SubObjectType: 
-    m_EditorAssetChanged: 0
+    m_SubObjectName: game_background
+    m_SubObjectType: UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+    m_EditorAssetChanged: 1
 --- !u!1001 &1538874233504382674
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3196,6 +3199,75 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5030804196687731869, guid: 99cfaa9277623f348af19f928255ad5f, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5030804196687731869, guid: 99cfaa9277623f348af19f928255ad5f, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5030804196687731869, guid: 99cfaa9277623f348af19f928255ad5f, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5030804196687731869, guid: 99cfaa9277623f348af19f928255ad5f, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5030804196687731869, guid: 99cfaa9277623f348af19f928255ad5f, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5030804196687731869, guid: 99cfaa9277623f348af19f928255ad5f, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5031518044448951517, guid: 99cfaa9277623f348af19f928255ad5f, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5031518044448951517, guid: 99cfaa9277623f348af19f928255ad5f, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5031518044448951517, guid: 99cfaa9277623f348af19f928255ad5f, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5031518044448951517, guid: 99cfaa9277623f348af19f928255ad5f, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5031518044448951517, guid: 99cfaa9277623f348af19f928255ad5f, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5031518044448951517, guid: 99cfaa9277623f348af19f928255ad5f, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5468001796687249358, guid: 99cfaa9277623f348af19f928255ad5f, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5468001796687249358, guid: 99cfaa9277623f348af19f928255ad5f, type: 3}
+      propertyPath: sprite.m_SubObjectName
+      value: CloseButtonSprite
+      objectReference: {fileID: 0}
+    - target: {fileID: 5468001796687249358, guid: 99cfaa9277623f348af19f928255ad5f, type: 3}
+      propertyPath: sprite.m_SubObjectType
+      value: UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      objectReference: {fileID: 0}
+    - target: {fileID: 5468001796687249358, guid: 99cfaa9277623f348af19f928255ad5f, type: 3}
+      propertyPath: sprite.m_EditorAssetChanged
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5468001796687249361, guid: 99cfaa9277623f348af19f928255ad5f, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5468001796908419412, guid: 99cfaa9277623f348af19f928255ad5f, type: 3}
       propertyPath: m_Alpha
       value: 0
@@ -3288,39 +3360,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6524719808679708593, guid: 99cfaa9277623f348af19f928255ad5f, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 2116644303, guid: 99cfaa9277623f348af19f928255ad5f, type: 3}
     - {fileID: 879928024, guid: 99cfaa9277623f348af19f928255ad5f, type: 3}
     - {fileID: 2131158696, guid: 99cfaa9277623f348af19f928255ad5f, type: 3}
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 99cfaa9277623f348af19f928255ad5f, type: 3}
---- !u!1 &5468001796687249356 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5101275350391739987, guid: 99cfaa9277623f348af19f928255ad5f, type: 3}
-  m_PrefabInstance: {fileID: 5468001796687249355}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &5468001796687249357 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5100692771562229669, guid: 99cfaa9277623f348af19f928255ad5f, type: 3}
   m_PrefabInstance: {fileID: 5468001796687249355}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &5468001796687249358
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5468001796687249356}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 27ae235b6acc0f44a8c11405ccef18d5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sprite:
-    m_AssetGUID: 85d62be1340f540b68fb4c9a1bef7091
-    m_SubObjectName: 
-    m_SubObjectType: 
-    m_EditorAssetChanged: 0
 --- !u!114 &5468001796687249359
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3339,29 +3393,6 @@ MonoBehaviour:
     m_SubObjectType: UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
     m_EditorAssetChanged: 1
---- !u!1 &5468001796687249360 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5100333382097522775, guid: 99cfaa9277623f348af19f928255ad5f, type: 3}
-  m_PrefabInstance: {fileID: 5468001796687249355}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &5468001796687249361
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5468001796687249360}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 27ae235b6acc0f44a8c11405ccef18d5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sprite:
-    m_AssetGUID: ba25e5d48b7ee472d9377687b5894f0d
-    m_SubObjectName: bigWinText
-    m_SubObjectType: UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
-    m_EditorAssetChanged: 0
 --- !u!114 &5624856485821269939 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5624856487494427715, guid: f407de63e114f95418a523dc7721c6dc, type: 3}

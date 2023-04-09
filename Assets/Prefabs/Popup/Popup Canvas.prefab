@@ -130,7 +130,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   popupSound: {fileID: 8406065689501248680}
-  message: {fileID: 0}
+  message: {fileID: 2983564742553700610}
 --- !u!1001 &5101798265645961493
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -447,6 +447,17 @@ PrefabInstance:
     - {fileID: 414472355591373938, guid: c136c8aa2eaa12c439fab5278e40a3c7, type: 3}
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: c136c8aa2eaa12c439fab5278e40a3c7, type: 3}
+--- !u!114 &2983564742553700610 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8046518762406615063, guid: c136c8aa2eaa12c439fab5278e40a3c7, type: 3}
+  m_PrefabInstance: {fileID: 5101798265645961493}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &4038105742808156589 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 9135272270842009784, guid: c136c8aa2eaa12c439fab5278e40a3c7, type: 3}
