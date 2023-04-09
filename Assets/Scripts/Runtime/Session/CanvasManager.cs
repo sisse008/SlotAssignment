@@ -24,15 +24,17 @@ public class CanvasManager : MonoBehaviour
     {
         popup.PopupDisplayedAction += mainCanvas.ToggleCanvas;
         loadingCanvas.LoadingDisplayedAction += mainCanvas.ToggleCanvas;
+        loadingCanvas.LoadingDisplayedAction += popup.ToggleCanvas;
     }
 
     private void OnDisable()
     {
         popup.PopupDisplayedAction -= mainCanvas.ToggleCanvas;
         loadingCanvas.LoadingDisplayedAction -= mainCanvas.ToggleCanvas;
+        loadingCanvas.LoadingDisplayedAction -= popup.ToggleCanvas;
     }
 
-  
+
     public void ShowWinningPopup(string text = "")
     {
         popup.EnablePopup("$" + text);
